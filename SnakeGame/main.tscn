@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvdaaqw54ek2x"]
+[gd_scene load_steps=3 format=3 uid="uid://dvdaaqw54ek2x"]
 
 [ext_resource type="PackedScene" uid="uid://b6qglliy66ypa" path="res://arena/arena.tscn" id="1_l3hac"]
+[ext_resource type="PackedScene" uid="uid://da8o85smtm7lh" path="res://characters/PlayerSnake/snake_player.tscn" id="2_vk2jx"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(-2, -36)
 
 [node name="arena" parent="." instance=ExtResource("1_l3hac")]
-position = Vector2(-12, 18)
+position = Vector2(-289, -156)
+
+[node name="snake_player" parent="." instance=ExtResource("2_vk2jx")]
+position = Vector2(538, 339)

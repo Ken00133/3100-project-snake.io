@@ -1,45 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6qglliy66ypa"]
-
-[ext_resource type="PackedScene" path="res://characters/PlayerSnake/snake_player.tscn" id="2_dhbp0"]
+[gd_scene load_steps=5 format=3 uid="uid://b6qglliy66ypa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhwv0"]
-size = Vector2(65, 702)
+size = Vector2(136, 1366)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpg1f"]
-size = Vector2(1084, 76)
+size = Vector2(2220, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8or1"]
-size = Vector2(65, 702)
+size = Vector2(147.5, 1376)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibi8n"]
-size = Vector2(1086, 74)
+size = Vector2(2180, 94)
 
 [node name="arena" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 96.0
 offset_top = 44.0
-offset_right = 1051.0
-offset_bottom = 600.0
+offset_right = 2241.0
+offset_bottom = 1293.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(39, 102)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(22.5, 222)
+position = Vector2(13, 564)
 shape = SubResource("RectangleShape2D_mhwv0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(532, -93)
+position = Vector2(1104, -69)
 shape = SubResource("RectangleShape2D_bpg1f")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1045, 222)
+position = Vector2(2207.75, 576)
 shape = SubResource("RectangleShape2D_r8or1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(533, 534)
+position = Vector2(1141, 1217)
 shape = SubResource("RectangleShape2D_ibi8n")
-
-[node name="snake_player" parent="." instance=ExtResource("2_dhbp0")]
-position = Vector2(322, 229)

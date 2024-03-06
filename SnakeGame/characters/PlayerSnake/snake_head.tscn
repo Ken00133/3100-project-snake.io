@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://knlmbidoygng"]
+
+[ext_resource type="Script" path="res://characters/PlayerSnake/snake_segment.gd" id="1_spd5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crp3t"]
+bg_color = Color(0.905882, 0, 0.419608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 730
+corner_radius_top_right = 730
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_472u0"]
+size = Vector2(100, 100)
+
+[node name="SnakeHead" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_spd5y")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_crp3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_472u0")
