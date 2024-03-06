@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://da8o85smtm7lh"]
+
+[ext_resource type="Script" path="res://characters/PlayerSnake/snake_player.gd" id="1_mr5jj"]
+[ext_resource type="PackedScene" uid="uid://bch54454nlfrb" path="res://characters/PlayerSnake/snake_segment.tscn" id="2_up57g"]
+
+[node name="snake_player" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_mr5jj")
+snake_seg = ExtResource("2_up57g")

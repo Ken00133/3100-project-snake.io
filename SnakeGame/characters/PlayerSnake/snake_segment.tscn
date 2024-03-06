@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bch54454nlfrb"]
+
+[ext_resource type="Script" path="res://characters/PlayerSnake/snake_segment.gd" id="1_gxiy2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4xbi"]
+bg_color = Color(0.239216, 0.65098, 0.811765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvqk5"]
+radius = 48.0
+
+[node name="SnakeSegment" type="CharacterBody2D"]
+position = Vector2(0, 1)
+collision_layer = 2
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_gxiy2")
+
+[node name="snake_segment" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+theme_override_styles/panel = SubResource("StyleBoxFlat_q4xbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49, 49)
+shape = SubResource("CircleShape2D_tvqk5")
