@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var snake_seg : PackedScene
-@export var snake_head : PackedScene
+export var snake_seg : PackedScene
+export var snake_head : PackedScene
 
 #Snake motion vars
 var snake_seg_offset = 20
-var snake_length = 100
+var snake_length = 20
 var snake_speed = 100
 var prev_pos : Array
 var current_pos : Array
@@ -27,11 +27,12 @@ func generate_snake():
 	add_head(start_pos, snake_length)
 	for i in range(1, snake_length):
 		add_segment(start_pos + Vector2(0, i), snake_length - i)
+	playercam.make_current()
 	playercam.zoom = Vector2(1.5, 1.5)
 	snake_body[0].add_child(playercam)
 	
 func add_segment(pos, z_index):
-	var seg = snake_seg.instantiate()
+	var seg = snake_seg.instance()
 	current_pos.append(pos)
 	seg.scale = Vector2(0.6, 0.6)
 	seg.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)
@@ -40,7 +41,7 @@ func add_segment(pos, z_index):
 	snake_body.append(seg)
 
 func add_head(pos, z_index):
-	var head = snake_head.instantiate()
+	var head = snake_head.instance()
 	current_pos.append(pos)
 	head.scale = Vector2(0.6, 0.6)
 	head.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)

@@ -4,10 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bch54454nlfrb" path="res://characters/PlayerSnake/snake_segment.tscn" id="2_up57g"]
 [ext_resource type="PackedScene" uid="uid://knlmbidoygng" path="res://characters/PlayerSnake/snake_head.tscn" id="3_vs0dr"]
 
-[node name="SnakePlayer" type="CharacterBody2D"]
-collision_layer = 2
-motion_mode = 1
-slide_on_ceiling = false
+[node name="SnakePlayer" type="Node2D"]
 script = ExtResource("1_mr5jj")
 snake_seg = ExtResource("2_up57g")
 snake_head = ExtResource("3_vs0dr")
