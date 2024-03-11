@@ -1,22 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.317647, 0.898039, 0.909804, 1 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 38.375, 581.5 )
+extents = Vector2( 38.375, 1018 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 26.25, 570.75 )
+extents = Vector2( 31.125, 1023.75 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 994.5, 25.5 )
+extents = Vector2( 1524, 25.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 984, 25.5 )
+extents = Vector2( 1529, 25.5 )
 
 [node name="arena" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 1918.0
-margin_bottom = 1121.0
+margin_right = 3000.0
+margin_bottom = 2000.0
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,17 +28,17 @@ __meta__ = {
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -2.375, 571.5 )
+position = Vector2( -2.375, 1008 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1925, 564.25 )
+position = Vector2( 3004.88, 1017.25 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 952.5, 2.5 )
+position = Vector2( 1482, 2.5 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 959, 1123 )
+position = Vector2( 1504, 2000 )
 shape = SubResource( 4 )
