@@ -21,3 +21,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# snake eat food
+func _on_food_body_entered(body):
+	if body.name == "SnakeSegment":
+		self.queue_free()

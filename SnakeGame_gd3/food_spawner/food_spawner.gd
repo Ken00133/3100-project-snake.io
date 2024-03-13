@@ -9,6 +9,8 @@ var max_food = 100
 # food size
 var max_food_size = 4
 var min_food_size = 1
+# random number generator
+var rng = RandomNumberGenerator.new()
 
 func spawn_food():
 	var position_of_food = food_position()
@@ -31,14 +33,17 @@ func food_position():
 	# var player_position = player.current_pos
 	var buffer = 20
 	var spawn_position: Vector2 = Vector2.ZERO
-	spawn_position.x = rand_range(buffer, width - buffer)
-	spawn_position.y = rand_range(buffer, height - buffer)
+	
+	rng.randomize()
+	spawn_position.x = rng.randf_range(buffer, width - buffer)
+	spawn_position.y = rng.randf_range(buffer, height - buffer)
 	return spawn_position
 	
 # random generate food size	
 func food_size():
 	var size = 0
-	size = rand_range(min_food_size, max_food_size)
+	rng.randomize()
+	size = rng.randf_range(min_food_size, max_food_size)
 	return size
 	
 # check if total food number > food size

@@ -70,3 +70,4 @@ func _input(event):
 		snake_speed = 300
 	else:
 		snake_speed = 100
+
