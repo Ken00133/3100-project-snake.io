@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Food_Spawer",
+"language": "GDScript",
+"path": "res://food_spawner/food_spawner.gd"
+} ]
+_global_script_class_icons={
+"Food_Spawer": ""
+}
+
 [application]
 
 config/name="Snake Game Gd 3"
