@@ -24,5 +24,6 @@ func _ready():
 
 # snake eat food
 func _on_food_body_entered(body):
-	if body.name == "SnakeSegment":
+	if body.name == "snakeHead":
 		self.queue_free()
+	# print(body.name)
