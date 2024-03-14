@@ -16,6 +16,7 @@ func _ready():
 	image.scale.y = size * 0.02
 	collision.scale.x = size
 	collision.scale.y = size
+	score = size
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +24,11 @@ func _ready():
 #	pass
 
 # snake eat food
-func _on_food_body_entered(body):
-	if body.name == "SnakeSegment":
+#func _on_food_body_entered(body):
+#	if body.name == "snakeHead":
+#		self.queue_free()
+#	# print(body.name)
+
+func _on_food_area_entered(area):
+	if area.is_in_group("snakehead"):
 		self.queue_free()
