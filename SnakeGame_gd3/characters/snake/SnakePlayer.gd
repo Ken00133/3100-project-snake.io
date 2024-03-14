@@ -7,8 +7,6 @@ export var snake_head : PackedScene
 var snake_seg_offset = 20
 var snake_length = 20
 var snake_speed = 100
-var prev_pos : Array
-var current_pos : Array
 var snake_body : Array
 
 var start_pos : Vector2 = global_position
@@ -20,8 +18,6 @@ func _ready():
 	generate_snake()
 
 func generate_snake():
-	prev_pos.clear()
-	current_pos.clear()
 	snake_body.clear()
 	
 	add_head(start_pos, snake_length)
@@ -33,7 +29,6 @@ func generate_snake():
 	
 func add_segment(pos, z_index):
 	var seg = snake_seg.instance()
-	current_pos.append(pos)
 	seg.scale = Vector2(0.6, 0.6)
 	seg.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)
 	seg.z_index
@@ -42,7 +37,6 @@ func add_segment(pos, z_index):
 
 func add_head(pos, z_index):
 	var head = snake_head.instance()
-	current_pos.append(pos)
 	head.scale = Vector2(0.6, 0.6)
 	head.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)
 	add_child(head)
@@ -70,4 +64,6 @@ func _input(event):
 		snake_speed = 300
 	else:
 		snake_speed = 100
+		
+
 
