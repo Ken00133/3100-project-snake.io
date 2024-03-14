@@ -64,10 +64,15 @@ func set_bounds():
 	bottom.position.y = height - bar_width
 	
 
-func _on_bounds_body_entered(body):
-	if body.name == "SnakeSegment":
-		end_game()
+# func _on_bounds_body_entered(body):
+	# if body.name == "SnakeSegment":
+		# end_game()
 		
 func end_game():
 	var end_game_scene: PackedScene = preload("res://end_game_page/end_game_page.tscn")
 	get_tree().change_scene_to(end_game_scene)
+
+
+func _on_bounds_area_entered(area):
+	if area.is_in_group("snakehead"):
+		end_game()

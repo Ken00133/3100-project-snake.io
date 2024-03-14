@@ -25,7 +25,7 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_right = 132.0
+margin_right = 133.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 3, 3 )
 theme = ExtResource( 2 )
@@ -37,7 +37,7 @@ __meta__ = {
 
 [node name="Setting" type="Button" parent="VBoxContainer"]
 margin_top = 26.0
-margin_right = 132.0
+margin_right = 133.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 3, 3 )
 theme = ExtResource( 2 )
@@ -49,7 +49,7 @@ __meta__ = {
 
 [node name="Leaderboard" type="Button" parent="VBoxContainer"]
 margin_top = 52.0
-margin_right = 132.0
+margin_right = 133.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 3, 3 )
 theme = ExtResource( 2 )
@@ -61,7 +61,7 @@ __meta__ = {
 
 [node name="Customize" type="Button" parent="VBoxContainer"]
 margin_top = 78.0
-margin_right = 132.0
+margin_right = 133.0
 margin_bottom = 100.0
 rect_pivot_offset = Vector2( 3, 3 )
 theme = ExtResource( 2 )
@@ -73,7 +73,7 @@ __meta__ = {
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 margin_top = 104.0
-margin_right = 132.0
+margin_right = 133.0
 margin_bottom = 126.0
 rect_pivot_offset = Vector2( 3, 3 )
 theme = ExtResource( 2 )

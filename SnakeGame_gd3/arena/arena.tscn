@@ -82,4 +82,4 @@ shape = SubResource( 9 )
 
 [node name="foods" type="Node2D" parent="."]
 
-[connection signal="body_entered" from="bounds" to="." method="_on_bounds_body_entered"]
+[connection signal="area_entered" from="bounds" to="." method="_on_bounds_area_entered"]
