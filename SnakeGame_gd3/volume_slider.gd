@@ -1,4 +1,4 @@
-extends Node2D
+extends HSlider
 
 
 # Declare member variables here. Examples:
@@ -14,13 +14,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Play_button_down():
-	get_tree().change_scene("res://Main.tscn")
-	
-func _on_Exit_button_down():
-	get_tree().quit()
-
-func _on_Customize_button_down():
-	get_tree().change_scene("res://customization/customization.tscn")

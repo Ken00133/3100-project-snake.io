@@ -13,16 +13,26 @@ _global_script_classes=[ {
 "class": "Food_Spawer",
 "language": "GDScript",
 "path": "res://food_spawner/food_spawner.gd"
+}, {
+"base": "Node2D",
+"class": "customization",
+"language": "GDScript",
+"path": "res://customization_page/customization.gd"
 } ]
 _global_script_class_icons={
-"Food_Spawer": ""
+"Food_Spawer": "",
+"customization": ""
 }
 
 [application]
 
 config/name="Snake Game Gd 3"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Main_page/main_page.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+AudioStreamPlayer2d="*res://soundtrack/background_music.tscn"
 
 [input]
 

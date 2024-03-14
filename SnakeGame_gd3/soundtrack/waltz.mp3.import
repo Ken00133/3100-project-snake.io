@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/waltz.mp3-1dcb281ade2e31d65b719a8652147522.mp3str"
+
+[deps]
+
+source_file="res://soundtrack/waltz.mp3"
+dest_files=[ "res://.import/waltz.mp3-1dcb281ade2e31d65b719a8652147522.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
