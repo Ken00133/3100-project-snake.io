@@ -11,3 +11,7 @@ snake_head = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 2000

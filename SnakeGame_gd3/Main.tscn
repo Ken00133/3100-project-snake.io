@@ -5,7 +5,7 @@
 [ext_resource path="res://live_leaderboard/live_leaderboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://food_spawner/food_spawner.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D"]
+[node name="game_play" type="Node2D"]
 
 [node name="arena" parent="." instance=ExtResource( 1 )]
 position = Vector2( -454, -276 )

@@ -27,14 +27,14 @@ func set_bounds():
 	bottom.shape.extents.x = width
 	bottom.shape.extents.y = bar_width
 	# position
-	left.position.x = -1 * bar_width
+	left.position.x = -0.5 * bar_width
 	left.position.y = height / 2
-	right.position.x = width + bar_width
+	right.position.x = width + bar_width / 2
 	right.position.y = height / 2
 	top.position.x = width / 2
-	top.position.y = -1 * bar_width
+	top.position.y = -0.5 * bar_width
 	bottom.position.x = width / 2
-	bottom.position.y = height + bar_width
+	bottom.position.y = height + bar_width / 2
 	
 
 # func _on_bounds_body_entered(body):
