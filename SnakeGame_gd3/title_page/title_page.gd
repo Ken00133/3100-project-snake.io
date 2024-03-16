@@ -1,10 +1,6 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,3 +24,19 @@ func _on_Customize_button_down():
 
 func _on_Setting_button_down():
 	get_tree().change_scene("res://setting_page/setting.tscn")
+
+
+
+var instruction = preload("res://title_page/Instruction.tscn")
+var instruct_to_play = instruction.instance()
+var just_pressed_how_to_play:bool = false
+
+func _on_How_to_play_button_down():
+	if not just_pressed_how_to_play:
+		add_child(instruct_to_play)
+		just_pressed_how_to_play = true
+	else:
+		remove_child(instruct_to_play)
+		just_pressed_how_to_play = false
+
+
