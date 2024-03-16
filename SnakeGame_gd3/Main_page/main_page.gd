@@ -24,3 +24,7 @@ func _on_Exit_button_down():
 
 func _on_Customize_button_down():
 	get_tree().change_scene("res://customization/customization.tscn")
+
+
+func _on_Setting_button_down():
+	get_tree().change_scene("res://setting_page/setting.tscn")

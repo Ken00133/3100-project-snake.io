@@ -15,8 +15,8 @@ func _ready():
 
 
 func _on_HSlider_value_changed(value):
-	var db = 10.0 * log(value)
-	AudioServer.set_bus_volume_db(master_bus, db)
+	#var db = 10.0 * log(value)
+	AudioServer.set_bus_volume_db(master_bus, value)
 	
 	if value < 0:
 		AudioServer.set_bus_mute(master_bus, true)
