@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/circle_purple.png-e8171f3dd8517cd2bedfeae9b4b1f41a.stex"
+path="res://.import/ball_2.png-6af337e0466abe0298be60990b03c621.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/snake_skin/circle_purple.png"
-dest_files=[ "res://.import/circle_purple.png-e8171f3dd8517cd2bedfeae9b4b1f41a.stex" ]
+source_file="res://images/snake_skin/ball_2.png"
+dest_files=[ "res://.import/ball_2.png-6af337e0466abe0298be60990b03c621.stex" ]
 
 [params]
 

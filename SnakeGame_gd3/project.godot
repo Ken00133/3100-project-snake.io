@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 AudioStreamPlayer2d="*res://soundtrack/background_music.tscn"
+GlobalVariable="*res://Global/global_variable.gd"
 
 [display]
 
