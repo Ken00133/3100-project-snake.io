@@ -6,8 +6,20 @@ export var velocity = Vector2(0,0)
 func _ready():
 	# for debuging
 	var dum = GlobalVariable.username
-	print("in snake segment: ", dum)
-	change_skin("1")
+
+	
+	var data = DatabaseUtils.database.execute("""
+	BEGIN;
+	SELECT * FROM %s;
+	COMMIT;
+	""" % ["user_profile"] )
+	
+	
+	for d in data[1].data_row:
+		print(d)
+		pass
+		
+	change_skin("4")
 	
 	
 func change_skin(skin_id):

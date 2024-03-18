@@ -23,3 +23,7 @@ func _on_HSlider_value_changed(value):
 	else:
 		AudioServer.set_bus_mute(master_bus, false)
 	
+
+
+func _on_Button_button_down():
+	get_tree().change_scene("res://title_page/title_page.tscn")
