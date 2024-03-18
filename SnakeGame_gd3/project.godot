@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "PostgreSQLClient",
 "language": "GDScript",
 "path": "res://Global/PostgreSQLClient.gd"
-}, {
-"base": "Node2D",
-"class": "customization",
-"language": "GDScript",
-"path": "res://customization_page/customization.gd"
 } ]
 _global_script_class_icons={
 "Food_Spawer": "",
-"PostgreSQLClient": "",
-"customization": ""
+"PostgreSQLClient": ""
 }
 
 [application]

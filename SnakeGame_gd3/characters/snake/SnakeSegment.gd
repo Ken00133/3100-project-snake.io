@@ -8,25 +8,23 @@ func _ready():
 	var dum = GlobalVariable.username
 
 	
-	var data = DatabaseUtils.database.execute("""
+	var snake_skin_data = DatabaseUtils.database.execute("""
 	BEGIN;
-	SELECT * FROM %s;
+	SELECT snake_skin FROM %s WHERE username='%s';
 	COMMIT;
-	""" % ["user_profile"] )
+	""" % ["user_profile", GlobalVariable.username] )
 	
 	
-	for d in data[1].data_row:
-		print(d)
-		pass
+	for snake_skin in snake_skin_data[1].data_row:
+		print(snake_skin)
+		change_skin(snake_skin[0])
 		
-	change_skin("4")
+	
 	
 	
 func change_skin(skin_id):
-	var collosion_circle = get_node("CollisionShape2D")
 	var snake = get_node("Sprite")
-	print(skin_id)
-	var path = "res://images/snake_skin/ball_" + skin_id + ".png"
+	var path = "res://images/snake_skin/ball_" + str(skin_id) + ".png"
 	snake.texture = load(path)
 	snake.scale.x = -0.22
 	snake.scale.y = 0.25
