@@ -4,7 +4,7 @@
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://title_page/new_theme_for_gui.tres" type="Theme" id=3]
 [ext_resource path="res://title_page/title_page.gd" type="Script" id=4]
-[ext_resource path="res://images/blue-wide-background.jpg" type="Texture" id=5]
+[ext_resource path="res://images/gui/blue-wide-background.jpg" type="Texture" id=5]
 [ext_resource path="res://images/game_icon.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]

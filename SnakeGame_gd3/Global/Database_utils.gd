@@ -7,6 +7,7 @@ var password = "csci3100"
 var port = 5432
 var databaseConnection = "postgres"
 
+signal databaseConnected
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +27,7 @@ func _exit_tree():
 	database.close()
 	
 func successConnection():
+	emit_signal("databaseConnected")
 	print("Connection is successful")
 	
 func closedConnection(was_closed):
@@ -59,19 +61,3 @@ func update_db(table_name, username, score, sound):
 	""" % [table_name, score, sound, username] 
 	)
 	
-	
-func _on_Button_button_down():
-	select_from("user_profile")
-	
-
-
-func _on_Quit_button_button_down():
-	get_tree().quit()
-
-
-func _on_insert_button_down():
-	insert_into_db("user_profile", "jelly", 100, 10)
-
-
-func _on_update_button_down():
-	update_db("user_profile", "lovy", 0, 0)

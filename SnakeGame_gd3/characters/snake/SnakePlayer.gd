@@ -22,13 +22,14 @@ func generate_snake():
 	
 	add_head(start_pos, snake_length)
 	for i in range(1, snake_length):
-		add_segment(start_pos + Vector2(0, i), snake_length - i)
+		add_segment(start_pos + Vector2(0, i), snake_length - i, GlobalVariable.snake_skin)
 	playercam.make_current()
 	playercam.zoom = Vector2(1.5, 1.5)
 	snake_body[0].add_child(playercam)
 	
-func add_segment(pos, z_index):
+func add_segment(pos, z_index, snake_skin):
 	var seg = snake_seg.instance()
+	seg.snake_skin = snake_skin
 	seg.scale = Vector2(0.6, 0.6)
 	seg.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)
 	seg.z_index
