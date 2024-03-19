@@ -23,14 +23,14 @@ font_data = ExtResource( 2 )
 [node name="customization" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Bk_to_main" type="Button" parent="."]
+[node name="Bk_to_title_screen" type="Button" parent="."]
 margin_left = 216.0
 margin_top = 488.0
 margin_right = 383.0
 margin_bottom = 529.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
-text = "Back to main menu"
+text = "Back to title screen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -114,7 +114,7 @@ position = Vector2( 513.5, 298 )
 scale = Vector2( 0.844167, 0.496667 )
 texture = ExtResource( 12 )
 
-[connection signal="button_down" from="Bk_to_main" to="." method="_on_Bk_to_main_button_down"]
+[connection signal="button_down" from="Bk_to_title_screen" to="." method="_on_Bk_to_main_button_down"]
 [connection signal="button_down" from="Confirm" to="." method="_on_Confirm_button_down"]
 [connection signal="button_down" from="HBoxContainer/Ball_1" to="." method="_on_Ball_1_button_down"]
 [connection signal="button_down" from="HBoxContainer/Ball_2" to="." method="_on_Ball_2_button_down"]

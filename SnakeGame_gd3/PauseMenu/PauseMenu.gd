@@ -23,6 +23,15 @@ func _on_Return_to_title_page_button_down():
 func _on_Exit_button_down():
 	get_tree().quit()
 
-
 func _on_Clear_High_Score_button_down():
-	pass # Replace with function body.
+	DatabaseUtils.database.execute("""
+	BEGIN;
+	UPDATE %s SET high_score=%d WHERE username='%s';
+	COMMIT;
+	""" % ["user_profile", 0, GlobalVariable.username] 
+	)
+
+
+func _on_Reset_button_down():
+	self.is_paused = false
+	get_tree().change_scene("res://Main.tscn")
