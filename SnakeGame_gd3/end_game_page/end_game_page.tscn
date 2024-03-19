@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://end_game_page/end_game_page.gd" type="Script" id=1]
+[ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://title_page/new_theme_for_gui.tres" type="Theme" id=3]
+[ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.439216, 0.870588, 0.423529, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
 
 [node name="end_game_page" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,6 +21,10 @@ custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+position = Vector2( 517, 316 )
+scale = Vector2( 1.72287, 1.20231 )
 
 [node name="died_message" type="Label" parent="."]
 margin_left = 2.0
@@ -30,3 +40,34 @@ __meta__ = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )
+
+[node name="Restart" type="Button" parent="."]
+margin_left = 421.0
+margin_top = 403.0
+margin_right = 566.0
+margin_bottom = 425.0
+rect_pivot_offset = Vector2( 3, 3 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back to title screen" type="Button" parent="."]
+margin_left = 252.0
+margin_top = 403.0
+margin_right = 397.0
+margin_bottom = 425.0
+rect_pivot_offset = Vector2( 3, 3 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "Back to title screen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" parent="." instance=ExtResource( 4 )]
+
+[connection signal="button_down" from="Restart" to="." method="_on_Leaderboard_button_down"]
+[connection signal="button_down" from="Back to title screen" to="." method="_on_Back_to_title_screen_button_down"]

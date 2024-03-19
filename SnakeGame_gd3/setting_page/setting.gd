@@ -43,3 +43,18 @@ func save_master_volume(volume):
 	COMMIT;
 	""" % ["user_profile", volume, GlobalVariable.username] 
 	)
+
+var background_imgs = [preload("res://images/gui/setting_img/bg_1.png"), preload("res://images/gui/setting_img/bg_2.jpg"),
+						preload("res://images/gui/setting_img/bg_3.jpg") ]
+var iterative_variable = 0
+func _on_next_theme_image_button_down():
+	if  0 <= iterative_variable and iterative_variable < background_imgs.size() -1 :
+		iterative_variable = iterative_variable + 1
+		get_node("ArenaBackground").texture = background_imgs[iterative_variable]
+
+
+func _on_previous_theme_image_button_down():
+	if  0 < iterative_variable and iterative_variable < background_imgs.size():
+		iterative_variable = iterative_variable - 1
+		get_node("ArenaBackground").texture = background_imgs[iterative_variable]
+

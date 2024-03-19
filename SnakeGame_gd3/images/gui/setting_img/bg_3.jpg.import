@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arena_background.jpg-e1203c50f909de79564d3b9120117a12.stex"
+path="res://.import/bg_3.jpg-a296806abc0211e6b9aca36fb7e87731.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/arena_background.jpg"
-dest_files=[ "res://.import/arena_background.jpg-e1203c50f909de79564d3b9120117a12.stex" ]
+source_file="res://images/gui/setting_img/bg_3.jpg"
+dest_files=[ "res://.import/bg_3.jpg-a296806abc0211e6b9aca36fb7e87731.stex" ]
 
 [params]
 

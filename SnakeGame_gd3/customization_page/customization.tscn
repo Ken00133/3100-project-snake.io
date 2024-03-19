@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://customization_page/customization.gd" type="Script" id=1]
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://images/snake_skin/ball_4_hover.png" type="Texture" id=10]
 [ext_resource path="res://images/snake_skin/ball_2_hover.png" type="Texture" id=11]
 [ext_resource path="res://images/gui/dark_gary_by_kjpargeter.jpg" type="Texture" id=12]
+[ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_char = 1
@@ -43,16 +44,6 @@ margin_bottom = 444.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Confirm"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" type="MenuButton" parent="."]
-margin_left = 56.0
-margin_top = 431.0
-margin_right = 163.0
-margin_bottom = 533.0
-text = "menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,6 +104,8 @@ __meta__ = {
 position = Vector2( 513.5, 298 )
 scale = Vector2( 0.844167, 0.496667 )
 texture = ExtResource( 12 )
+
+[node name="Control" parent="." instance=ExtResource( 13 )]
 
 [connection signal="button_down" from="Bk_to_title_screen" to="." method="_on_Bk_to_main_button_down"]
 [connection signal="button_down" from="Confirm" to="." method="_on_Confirm_button_down"]
