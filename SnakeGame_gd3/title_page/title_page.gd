@@ -40,3 +40,5 @@ func _on_How_to_play_button_down():
 		just_pressed_how_to_play = false
 
 
+func _on_Achievement_button_down():
+	get_tree().change_scene("res://Achievemnt_page/achievement.tscn")

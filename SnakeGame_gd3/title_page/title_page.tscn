@@ -159,7 +159,7 @@ __meta__ = {
 [connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_Play_button_down"]
 [connection signal="button_down" from="VBoxContainer/Setting" to="." method="_on_Setting_button_down"]
 [connection signal="button_down" from="VBoxContainer/Customize" to="." method="_on_Customize_button_down"]
-[connection signal="button_down" from="VBoxContainer/Achievement" to="." method="_on_Customize_button_down"]
+[connection signal="button_down" from="VBoxContainer/Achievement" to="." method="_on_Achievement_button_down"]
 [connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_Exit_button_down"]
 [connection signal="button_down" from="How_to_play" to="." method="_on_How_to_play_button_down"]
 [connection signal="toggled" from="How_to_play" to="." method="_on_How_to_play_toggled"]

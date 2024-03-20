@@ -42,9 +42,9 @@ func select_from(table_name):
 	""" % [table_name] )
 	
 	
-	for d in data[1].data_row:
-		print(d)
-		pass
+	#for d in data[1].data_row:
+	#	print(d)
+	#	pass
 	
 func insert_into_db(table_name, username, score, sound):
 	var data = database.execute("""
