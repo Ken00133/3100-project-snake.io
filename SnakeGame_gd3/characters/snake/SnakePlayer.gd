@@ -8,10 +8,10 @@ var playercam = Camera2D.new()
 var init_zoom = Vector2(0.5, 0.5)
 
 #Snake motion vars
-var snake_seg_offset = 50
+var snake_seg_offset = 20
 var snake_length = 5 #initial snake length
 var snake_speed = 100 #initial snake speed
-var snake_rotation_speed = 10
+var snake_rotation_speed = 2 #initial rotational speed
 var snake_width = Vector2(0.6, 0.6)
 
 var max_boost_energy : float = snake_length*100
@@ -69,11 +69,9 @@ func add_head(pos, scale, z_index):
 
 func move_snake():
 	
-	var segment_vect : Vector2
-	segment_vect = get_global_mouse_position() - snake_body[0].global_position
-	snake_body[0].velocity = (segment_vect).normalized()*snake_speed
-	# snake_body[0].velocity = drive_SnakeHead(snake_body[0].velocity)
+	snake_body[0].velocity = drive_SnakeHead(snake_body[0].velocity)
 	
+	var segment_vect : Vector2
 	for i in range(1, snake_length):
 		segment_vect = snake_body[i-1].global_position - snake_body[i].global_position
 		if segment_vect.length() > snake_seg_offset:
@@ -90,18 +88,23 @@ func move_snake():
 	snake_body[0].energy = Vector2((boost_energy/max_boost_energy), 1.0)
 
 func drive_SnakeHead(snake_velocity):
-	var segment_vect : Vector2
-	var angle : float
-	segment_vect = get_global_mouse_position() - snake_body[0].global_position
 	
-	var dif = rad2deg(snake_velocity.angle() - segment_vect.angle())
+	var heading_vect : Vector2
+	heading_vect = get_global_mouse_position() - snake_body[0].global_position
+	
+	var dif = rad2deg(snake_velocity.angle() - heading_vect.angle())
 	if dif < 0 and dif > -180 or dif > 180:
-		snake_velocity = snake_velocity.rotated(deg2rad(snake_rotation_speed))
+		if snake_rotation_speed < abs(dif):
+			snake_velocity = snake_velocity.rotated(deg2rad(snake_rotation_speed))
+		else:
+			snake_velocity = snake_velocity.rotated(deg2rad(abs(dif)))
 	elif dif > 0 and dif < 180 or dif < -180:
-		snake_velocity = snake_velocity.rotated(-deg2rad(snake_rotation_speed))
+		if snake_rotation_speed < abs(dif):
+			snake_velocity = snake_velocity.rotated(-deg2rad(snake_rotation_speed))
+		else:
+			snake_velocity = snake_velocity.rotated(-deg2rad(abs(dif)))
 	
 	snake_velocity = (snake_velocity).normalized()*snake_speed
-	
 	return snake_velocity
 	
 
@@ -112,6 +115,7 @@ func update_snake_params():
 	snake_length += 1
 	max_boost_energy = snake_length*100
 	recover_speed += 1
+	snake_rotation_speed *= 0.99
 	
 	for i in range(0, snake_length):
 		snake_body[i].scale += Vector2(0.1, 0.1)
