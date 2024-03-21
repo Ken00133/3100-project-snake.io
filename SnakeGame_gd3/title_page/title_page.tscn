@@ -154,7 +154,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" parent="." instance=ExtResource( 7 )]
+[node name="always_available_menu" parent="." instance=ExtResource( 7 )]
 
 [connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_Play_button_down"]
 [connection signal="button_down" from="VBoxContainer/Setting" to="." method="_on_Setting_button_down"]

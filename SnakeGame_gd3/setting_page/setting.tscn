@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://setting_page/setting.gd" type="Script" id=2]
 [ext_resource path="res://title_page/new_theme_for_gui.tres" type="Theme" id=3]
 [ext_resource path="res://images/gui/dark_gary_by_kjpargeter.jpg" type="Texture" id=4]
 [ext_resource path="res://title_page/new_theme_for_button_second.tres" type="Theme" id=5]
-[ext_resource path="res://images/gui/setting_img/bg_1.png" type="Texture" id=6]
+[ext_resource path="res://images/gui/setting_img/bg_4.png" type="Texture" id=6]
 [ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/gui/setting_img/lock.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -27,6 +28,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="always_available_menu" parent="." instance=ExtResource( 7 )]
 
 [node name="HSlider" type="HSlider" parent="."]
 margin_left = 439.0
@@ -110,12 +113,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArenaBackground" type="Sprite" parent="."]
-position = Vector2( 534, 302 )
-scale = Vector2( 0.104758, 0.120906 )
+[node name="Background_CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ArenaBackground" type="Sprite" parent="Background_CanvasLayer"]
+position = Vector2( 534, 297 )
+scale = Vector2( 0.118379, 0.120453 )
 texture = ExtResource( 6 )
 
-[node name="always_available_menu" parent="." instance=ExtResource( 7 )]
+[node name="Lock" type="Sprite" parent="Background_CanvasLayer"]
+visible = false
+position = Vector2( 533, 296 )
+scale = Vector2( 0.1425, 0.12225 )
+texture = ExtResource( 8 )
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="button_down" from="Back_to_title_screen" to="." method="_on_Button_button_down"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://images/gui/dark_gary_by_kjpargeter.jpg" type="Texture" id=1]
 [ext_resource path="res://Achievemnt_page/achievement.gd" type="Script" id=2]
+[ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -108,3 +109,7 @@ text = "Achievement"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="always_available_menu" parent="." instance=ExtResource( 3 )]
+margin_left = -11.0
+margin_right = -11.0

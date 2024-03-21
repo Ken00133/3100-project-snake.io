@@ -21,7 +21,7 @@ position = Vector2( 519, 307 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="always_available_menu" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false

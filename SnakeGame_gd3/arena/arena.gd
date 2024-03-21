@@ -10,6 +10,7 @@ var width = 3000
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_bounds()
+	set_arena_background()
 
 func set_bounds():
 	var left = get_node("bounds/left")
@@ -49,3 +50,9 @@ func end_game():
 func _on_bounds_area_entered(area):
 	if area.is_in_group("snakehead"):
 		end_game()
+		
+func set_arena_background():
+	print("set_arena_bg: ", GlobalVariable.background_theme)
+	var b = get_node("Panel/background")
+	b.texture = load("res://images/gui/arena_background/bg_" + str(GlobalVariable.background_theme)+ ".jpg")
+

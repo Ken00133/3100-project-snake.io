@@ -65,6 +65,8 @@ func _on_Confirm_button_down():
 	""" % ["user_profile", snake_skin, GlobalVariable.username] 
 	)
 	GlobalVariable.snake_skin = snake_skin
+	get_tree().change_scene("res://title_page/title_page.tscn")
+	
 	
 
 func _on_Bk_to_main_button_down():

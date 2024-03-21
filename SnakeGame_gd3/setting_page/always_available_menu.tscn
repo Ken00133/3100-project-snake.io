@@ -11,10 +11,10 @@ __meta__ = {
 }
 
 [node name="MenuButton" type="MenuButton" parent="."]
-margin_left = 381.0
-margin_top = 2.0
-margin_right = 444.0
-margin_bottom = 22.0
+margin_left = 961.0
+margin_top = 576.0
+margin_right = 1024.0
+margin_bottom = 596.0
 text = "Menu"
 __meta__ = {
 "_edit_use_anchors_": false
