@@ -8,9 +8,16 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	modify_player_score()
 
+func player_score():
+	var player = get_parent().get_node("SnakePlayer")
+	return int(player.player_score)
 
+func modify_player_score():
+	var label = get_node("player_score")
+	var score = player_score()
+	label.text = "Your score: " + str(score)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	var id_label = get_node("id")
@@ -23,3 +30,7 @@ func _ready():
 #	score_label.text = "Score\n" + str(player.player_score)
 #	level_label.text = "Level\n" + str(player.player_level)
 #	rank_label.text = "Rank\n1"
+
+
+func _on_Timer_timeout():
+	modify_player_score()

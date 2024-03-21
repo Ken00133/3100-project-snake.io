@@ -27,17 +27,19 @@ func food_position():
 	var arena = get_parent().get_node("arena")
 	var height = arena.height
 	var width = arena.width
-	# ignore the snake first
-	# snake position
-	# var player = get_parent().get_node("SnakePlayer")
-	# var player_position = player.current_pos
 	var buffer = 20
 	var spawn_position: Vector2 = Vector2.ZERO
 	
+	# random posiiton
 	rng.randomize()
 	spawn_position.x = rng.randf_range(buffer, width - buffer)
 	spawn_position.y = rng.randf_range(buffer, height - buffer)
+	
 	return spawn_position
+	
+func snake_position():
+	var player = get_parent().get_node("SnakePlayer")
+	return player.position
 	
 # random generate food size	
 func food_size():
@@ -63,6 +65,7 @@ func _ready():
 func _on_Timer_timeout():
 	if !exceed_max_food():
 		spawn_food()
+	# print(snake_position())
 	# print(get_parent().get_node("arena").get_node("foods").get_child_count())
 
 # when a snake eat a food, should remove the food from parent node foods

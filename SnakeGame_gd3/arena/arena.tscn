@@ -31,6 +31,7 @@ __meta__ = {
 [node name="bounds" type="Area2D" parent="."]
 
 [node name="left" type="CollisionShape2D" parent="bounds"]
+show_behind_parent = true
 position = Vector2( 0, 1000 )
 shape = SubResource( 6 )
 
