@@ -5,8 +5,9 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useNavigate,
 } from "react-router-dom";
-import { Login, Register } from "./components/auth";
+import { Login, Register } from "./components/auth.js";
 
 class App extends React.Component {
   render() {
@@ -46,6 +47,7 @@ class App extends React.Component {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div align="center">
       <br/><br/>
@@ -58,14 +60,20 @@ const Home = () => {
       <button type="button" class="btn btn-success btn-lg"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Login </a></button>
       <br/><br/>
       <button type="button" class="btn btn-outline-success btn-sm"><a href="/register" style={{textDecoration: 'none', color: 'white'}}> Register </a></button>
+      <br/><br/>
+      <button type="button" class="btn btn-primary btn-lg" onClick={() => navigate("/game")}>Play (skipping the login)</button>
     </div>
   );
 }
 
 const GameIframe = () => {
   return (
-    <div className="Game">
-      <iframe src={`${process.env.PUBLIC_URL}/mygame/Snake Game Gd 3.html`} style={{width: '100%', height: '85vh', border: 'none'}} title="Game"></iframe>
+    <div style={{width: '100vw', height: '100vh', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <iframe
+        src={`${process.env.PUBLIC_URL}/mygame/Snake Game Gd 3.html`}
+        style={{width: '100vw', height: '100vh', border: 'none'}}
+        title="Game">
+      </iframe>
     </div>
   );
 };
