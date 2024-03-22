@@ -16,15 +16,15 @@ func set_bounds():
 	var right = get_node("bounds/right")
 	var top = get_node("bounds/top")
 	var bottom = get_node("bounds/bottom")
-	var bar_width = 0.1
+	var bar_width = 1
 	# shape
 	left.shape.extents.x = bar_width
-	left.shape.extents.y = height
+	left.shape.extents.y = height / 2
 	right.shape.extents.x = bar_width
-	right.shape.extents.y = height
-	top.shape.extents.x = width
+	right.shape.extents.y = height / 2
+	top.shape.extents.x = width / 2
 	top.shape.extents.y = bar_width
-	bottom.shape.extents.x = width
+	bottom.shape.extents.x = width / 2
 	bottom.shape.extents.y = bar_width
 	# position
 	left.position.x = -1 * bar_width
