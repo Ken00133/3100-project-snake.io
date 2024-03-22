@@ -3,6 +3,7 @@
 [ext_resource path="res://characters/snake/SnakeSegment.gd" type="Script" id=1]
 [ext_resource path="res://images/snake_skin/ball_3.png" type="Texture" id=2]
 
+
 [sub_resource type="CircleShape2D" id=2]
 radius = 51.0
 

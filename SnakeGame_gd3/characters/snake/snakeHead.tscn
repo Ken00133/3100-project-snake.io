@@ -5,6 +5,7 @@
 [ext_resource path="res://images/snake_skin/ball_3.png" type="Texture" id=3]
 [ext_resource path="res://images/snake_skin/eye.png" type="Texture" id=4]
 
+
 [sub_resource type="CircleShape2D" id=2]
 radius = 50.04
 
