@@ -1,9 +1,7 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var height = 2000
 var width = 3000
 
@@ -43,10 +41,21 @@ func set_bounds():
 		# end_game()
 		
 func end_game():
+	# update high_score, highest_length and highest_number_of_kills
+	# compare them with those in db
+	# achievement_condition_check() - > achievement_list
+	# update the global variable
+	
+	
+	
+	# change scene
 	var end_game_scene: PackedScene = preload("res://end_game_page/end_game_page.tscn")
 	get_tree().change_scene_to(end_game_scene)
-
-
+	
+func achievement_condition_check():
+	pass
+	
+	
 func _on_bounds_area_entered(area):
 	if area.is_in_group("snakehead"):
 		end_game()

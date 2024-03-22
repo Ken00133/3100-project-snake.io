@@ -58,12 +58,6 @@ func add_head(pos, z_index):
 	
 	
 func _on_Confirm_button_down():
-	DatabaseUtils.database.execute("""
-	BEGIN;
-	UPDATE %s SET snake_skin=%d WHERE username='%s';
-	COMMIT;
-	""" % ["user_profile", snake_skin, GlobalVariable.username] 
-	)
 	GlobalVariable.snake_skin = snake_skin
 	get_tree().change_scene("res://title_page/title_page.tscn")
 	

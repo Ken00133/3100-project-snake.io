@@ -13,6 +13,7 @@ func _on_item_pressed(id):
 	if item_name == "Reset":
 		get_tree().change_scene("res://title_page/title_page.tscn")
 	elif item_name == "Clear High Score":
+		GlobalVariable.high_score = 0
 		DatabaseUtils.database.execute("""
 		BEGIN;
 		UPDATE %s SET high_score=%d WHERE username='%s';

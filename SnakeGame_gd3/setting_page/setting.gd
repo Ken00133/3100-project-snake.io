@@ -35,29 +35,10 @@ func _on_HSlider_value_changed(value):
 
 
 func _on_Button_button_down():
-	save_master_volume(master_volume)
-	save_background_theme(iterative_variable + 1)
 	GlobalVariable.master_volume = master_volume
 	get_tree().change_scene("res://title_page/title_page.tscn")
 	
-func save_master_volume(volume):
 	
-	DatabaseUtils.database.execute("""
-	BEGIN;
-	UPDATE %s SET master_volume=%d WHERE username='%s';
-	COMMIT;
-	""" % ["user_profile", volume, GlobalVariable.username] 
-	)
-	
-func save_background_theme(background_theme):
-	
-	DatabaseUtils.database.execute("""
-	BEGIN;
-	UPDATE %s SET background_theme=%d WHERE username='%s';
-	COMMIT;
-	""" % ["user_profile", background_theme, GlobalVariable.username] 
-	)
-
 func _on_next_theme_image_button_down():
 	if  0 <= iterative_variable and iterative_variable < background_imgs.size() - 1 :
 		iterative_variable = iterative_variable + 1

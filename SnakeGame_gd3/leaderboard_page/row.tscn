@@ -1,0 +1,55 @@
+[gd_scene format=2]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_left = -2.0
+margin_top = -1.0
+margin_right = 1025.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Label" parent="."]
+margin_top = 17.0
+margin_right = 202.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Ranking"
+align = 1
+
+[node name="2" type="Label" parent="."]
+margin_left = 206.0
+margin_top = 17.0
+margin_right = 408.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Username"
+align = 1
+
+[node name="3" type="Label" parent="."]
+margin_left = 412.0
+margin_top = 17.0
+margin_right = 614.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "High score"
+align = 1
+
+[node name="4" type="Label" parent="."]
+margin_left = 618.0
+margin_top = 17.0
+margin_right = 820.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Highest number of kills"
+align = 1
+
+[node name="5" type="Label" parent="."]
+margin_left = 824.0
+margin_top = 17.0
+margin_right = 1027.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "Highest length"
+align = 1

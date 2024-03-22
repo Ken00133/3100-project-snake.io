@@ -26,7 +26,6 @@ func _on_Setting_button_down():
 	get_tree().change_scene("res://setting_page/setting.tscn")
 
 
-
 var instruction = preload("res://title_page/Instruction.tscn")
 var instruct_to_play = instruction.instance()
 var just_pressed_how_to_play:bool = false
@@ -42,3 +41,7 @@ func _on_How_to_play_button_down():
 
 func _on_Achievement_button_down():
 	get_tree().change_scene("res://Achievemnt_page/achievement.tscn")
+
+
+func _on_Leaderboard_button_down():
+	get_tree().change_scene("res://leaderboard_page/leaderboard.tscn")
