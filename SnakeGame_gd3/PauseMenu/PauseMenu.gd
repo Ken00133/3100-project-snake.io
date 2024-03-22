@@ -24,12 +24,7 @@ func _on_Exit_button_down():
 	get_tree().quit()
 
 func _on_Clear_High_Score_button_down():
-	DatabaseUtils.database.execute("""
-	BEGIN;
-	UPDATE %s SET high_score=%d WHERE username='%s';
-	COMMIT;
-	""" % ["user_profile", 0, GlobalVariable.username] 
-	)
+	GlobalVariable.high_score = 0
 
 
 func _on_Reset_button_down():
