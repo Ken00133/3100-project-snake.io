@@ -6,7 +6,7 @@ func _ready():
 	# for debuging
 	var dum = GlobalVariable.username
 	print("in snake segment: ", dum)
-	change_skin("1")
+	change_skin("3")
 	
 func change_skin(skin_id):
 	var collosion_circle = get_node("CollisionShape2D")

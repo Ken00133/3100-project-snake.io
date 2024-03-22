@@ -5,6 +5,8 @@ class_name PlayerSnake
 export var snake_seg : PackedScene
 export var snake_head : PackedScene
 
+var username = GlobalVariable.username
+
 # Player's camera
 var playercam = Camera2D.new()
 var init_zoom = Vector2(1,1)
@@ -88,6 +90,8 @@ func add_head(pos, scale, z_index):
 	head.scale = scale
 	head.position = pos
 	head.z_index = z_index
+	head.uname = GlobalVariable.username
+	
 	last_z = z_index
 	add_child(head)
 	snake_body.append(head)
