@@ -19,12 +19,11 @@ func _on_Exit_button_down():
 	get_tree().quit()
 
 func _on_Customize_button_down():
-	get_tree().change_scene("res://customization/customization.tscn")
+	get_tree().change_scene("res://customization_page/customization.tscn")
 
 
 func _on_Setting_button_down():
 	get_tree().change_scene("res://setting_page/setting.tscn")
-
 
 
 var instruction = preload("res://title_page/Instruction.tscn")
@@ -40,3 +39,9 @@ func _on_How_to_play_button_down():
 		just_pressed_how_to_play = false
 
 
+func _on_Achievement_button_down():
+	get_tree().change_scene("res://Achievemnt_page/achievement.tscn")
+
+
+func _on_Leaderboard_button_down():
+	get_tree().change_scene("res://leaderboard_page/leaderboard.tscn")

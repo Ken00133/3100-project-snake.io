@@ -20,3 +20,12 @@ func display_message():
 	# put label in the center
 	died_message.rect_position.x = window_length / 2 - label_length
 	died_message.rect_position.y = window_height / 2 - label_height
+
+
+
+func _on_Restart_button_down():
+	get_tree().change_scene("res://Main.tscn")
+
+
+func _on_BK_to_title_page_button_down():
+	get_tree().change_scene("res://title_page/title_page.tscn")

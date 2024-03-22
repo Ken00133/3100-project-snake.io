@@ -4,7 +4,7 @@
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.00392157, 0.00392157, 0.00392157, 0.231373 )
+bg_color = Color( 0.368627, 0.368627, 0.360784, 0.231373 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )

@@ -19,15 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/snake/SnakePlayer.gd"
 }, {
-"base": "Node2D",
-"class": "customization",
+"base": "Object",
+"class": "PostgreSQLClient",
 "language": "GDScript",
-"path": "res://customization_page/customization.gd"
+"path": "res://Global/PostgreSQLClient.gd"
 } ]
 _global_script_class_icons={
 "Food_Spawer": "",
 "PlayerSnake": "",
-"customization": ""
+"PostgreSQLClient": ""
 }
 
 [application]
@@ -38,6 +38,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+DatabaseUtils="*res://Global/Database_utils.gd"
 AudioStreamPlayer2d="*res://soundtrack/background_music.tscn"
 GlobalVariable="*res://Global/global_variable.gd"
 
@@ -50,6 +51,11 @@ window/stretch/mode="2d"
 speed_boost={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":77,"unicode":0,"echo":false,"script":null)
  ]
 }
 

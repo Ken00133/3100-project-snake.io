@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://end_game_page/end_game_page.gd" type="Script" id=1]
+[ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://title_page/new_theme_for_gui.tres" type="Theme" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.439216, 0.870588, 0.423529, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+extra_spacing_space = 1
+font_data = ExtResource( 2 )
 
 [node name="end_game_page" type="Node2D"]
 script = ExtResource( 1 )
@@ -30,3 +42,36 @@ __meta__ = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )
+
+[node name="always_available_menu" parent="." instance=ExtResource( 3 )]
+margin_left = 434.0
+margin_top = 499.0
+margin_right = 434.0
+margin_bottom = 499.0
+
+[node name="Restart" type="Button" parent="."]
+margin_left = 561.0
+margin_top = 445.0
+margin_right = 739.0
+margin_bottom = 467.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BK_to_title_page" type="Button" parent="."]
+margin_left = 298.0
+margin_top = 441.0
+margin_right = 456.0
+margin_bottom = 472.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 3 )
+text = "Back to title page"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Restart" to="." method="_on_Restart_button_down"]
+[connection signal="button_down" from="BK_to_title_page" to="." method="_on_BK_to_title_page_button_down"]
