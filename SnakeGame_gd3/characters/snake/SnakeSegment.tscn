@@ -4,7 +4,7 @@
 [ext_resource path="res://images/snake_skin/ball_3.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 50.01
+radius = 51.0
 
 [node name="SnakeSegment" type="KinematicBody2D"]
 collision_layer = 2
@@ -24,9 +24,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.0124793, 3 )
 rotation = 3.14159
-scale = Vector2( 0.24, -0.25 )
+scale = Vector2( 0.25, -0.25 )
 texture = ExtResource( 2 )
 
 [node name="segmentCollision" type="Area2D" parent="." groups=["snakeSeg"]]

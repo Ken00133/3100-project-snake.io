@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://characters/snake/SnakePlayer.gd" type="Script" id=1]
 [ext_resource path="res://characters/snake/SnakeSegment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/snake/snakeHead.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/snake/energy_bar.tscn" type="PackedScene" id=4]
 
 [node name="SnakePlayer" type="Node2D"]
 script = ExtResource( 1 )
 snake_seg = ExtResource( 2 )
 snake_head = ExtResource( 3 )
-energy_bar = ExtResource( 4 )
