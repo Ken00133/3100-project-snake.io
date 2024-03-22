@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('./userProfile');
 const bodyParser = require('body-parser');
-
+//const saltRounds = 10; // For bcrypt
 // mongoose.connect('mongodb://127.0.0.1:27017/3100_project_db') // put your own database link here
 
 // const db = mongoose.connection;
@@ -32,10 +32,45 @@ client.once('open', function () {
 
 
     //Event list handle
-    app.get('/location/:venueid', (req, res) => {
-        //TODO: some stuff
-    });
+    app.post('/register', async (req, res) => {
 
+        const { username, password, highScore = 0, highestLength = 0, highestNumberOfKills = 0, masterVolume = 1, soundEffectVolume = 1, snakeSkin = 4, achievement = '{f, f, f}', backgroundTheme = 2 } = req.body;
+      
+        // Hash the password
+        //const hashedPassword = await bcrypt.hash(password, saltRounds);
+      
+        // SQL query to insert the new user
+        const query = `
+          INSERT INTO user_profile
+          (high_score, highest_length, highest_number_of_kills, master_volume, sound_effect_volume, password, snake_skin, username, achievement, background_theme)
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        `;
+      
+        const values = [highScore, highestLength, highestNumberOfKills, masterVolume, soundEffectVolume, password, snakeSkin, username, achievement, backgroundTheme];
+      
+        // Execute the query
+        client.query(query, values)
+          .then(() => res.status(200).send('User registered successfully'))
+          .catch((err) => {
+            console.error('Error inserting data into database:', err);
+            res.status(500).send('Error registering user');
+          });
+        });
+        const verifyUserQuery = `SELECT * FROM user_profile WHERE username = $1`;
+        client.query(verifyUserQuery, [username])
+            .then(queryRes => {
+            if (queryRes.rows.length > 0) {
+                // User exists, send a success message
+                res.status(200).json({ message: "User registered successfully", user: queryRes.rows[0] });
+            } else {
+                // User was not found after insertion, something went wrong
+                res.status(500).json({ message: "User registration failed" });
+            }
+            })
+            .catch(err => {
+                console.error('Error verifying user in database:', err);
+                res.status(500).json({ message: "Error during registration process" });
+            });
 
     // requestssss...
 
