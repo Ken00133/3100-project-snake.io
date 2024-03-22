@@ -7,7 +7,7 @@ export var snake_head : PackedScene
 
 # Player's camera
 var playercam = Camera2D.new()
-var init_zoom = Vector2(-10,-10)
+var init_zoom = Vector2(1,1)
 
 # Snake motion vars
 var snake_length = 5 # initial snake length
@@ -44,7 +44,7 @@ func _process(_delta):
 	if player_level < level:
 		update_snake_params()
 		player_level = level
-		# playercam.zoom += Vector2(0.1, 0.1)
+		playercam.zoom += Vector2(0.1, 0.1)
 
 func _physics_process(_delta):
 	move_snake()

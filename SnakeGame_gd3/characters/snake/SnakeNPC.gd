@@ -99,10 +99,9 @@ func add_head(pos, scale, z_index):
 func gen_random_pos():
 	var arena_height = _arena.height
 	var arena_width = _arena.width
-	var buffer = 20
 	rng.randomize()
-	RandomPos.x = rng.randf_range(buffer, arena_width - buffer)
-	RandomPos.y = rng.randf_range(buffer, arena_height - buffer)
+	RandomPos.x = rng.randf_range(0, arena_width/2)
+	RandomPos.y = rng.randf_range(0, arena_height/2)
 
 # Move the snake frame by frame
 func move_snake():
