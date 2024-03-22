@@ -20,6 +20,7 @@ var rng = RandomNumberGenerator.new()
 var isEating = false
 var nearestFoodPos : Vector2
 var RandomPos : Vector2
+var possible_names = ["Jake", "Josh", "Peter", "Nat", "Ken", "Alex", "xXSnakeSlayerXx"]
 
 # Speed boost parameters
 var max_boost_energy : float = snake_length*100
@@ -36,6 +37,8 @@ var level = 1
 
 # First (head) z-index
 var last_z = 100
+
+#==============================================================================#
 
 func _ready():
 	gen_random_pos()
@@ -60,6 +63,8 @@ func _on_detection_area_entered(area):
 	if area.is_in_group("food") and not isEating:
 		nearestFoodPos = area.global_position
 		isEating = true
+
+#==============================================================================#
 
 # Spawn the whole snake body and nudge it
 func generate_snake():
@@ -87,10 +92,13 @@ func add_segment(pos, scale, z_index):
 
 # Spawn a snake head
 func add_head(pos, scale, z_index):
+	rng.randomize()
+	var rand_ind = rng.randf_range(0, possible_names.size() - 1)
 	var head = snake_head.instance()
 	head.scale = scale
 	head.position = pos
 	head.z_index = z_index
+	head.uname = possible_names[rand_ind]
 	last_z = z_index
 	add_child(head)
 	snake_body.append(head)

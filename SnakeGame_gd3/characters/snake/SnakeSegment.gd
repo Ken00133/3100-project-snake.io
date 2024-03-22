@@ -7,8 +7,6 @@ func _ready():
 	change_skin(snake_skin)
 		
 	
-	
-	
 func change_skin(skin_id):
 	var snake = get_node("Sprite")
 	var path = "res://images/snake_skin/ball_" + str(skin_id) + ".png"

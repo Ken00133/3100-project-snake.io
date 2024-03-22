@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/snake/snakeHead.gd" type="Script" id=1]
 [ext_resource path="res://characters/snake/energy_bar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://images/snake_skin/ball_3.png" type="Texture" id=3]
+[ext_resource path="res://images/snake_skin/ball_4.png" type="Texture" id=3]
 [ext_resource path="res://images/snake_skin/eye.png" type="Texture" id=4]
+[ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 50.04
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_detail = 10
 
 [node name="snakeHead" type="KinematicBody2D"]
 collision_layer = 2
@@ -48,6 +57,19 @@ margin_top = -140.0
 margin_right = 5.0
 rect_pivot_offset = Vector2( 5, 140 )
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakename" type="Label" parent="."]
+margin_left = -47.0
+margin_top = -98.0
+margin_right = 51.0
+margin_bottom = -78.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "username"
+__meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
