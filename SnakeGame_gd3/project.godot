@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://food_spawner/food_spawner.gd"
 }, {
 "base": "Node2D",
+"class": "PlayerSnake",
+"language": "GDScript",
+"path": "res://characters/snake/SnakePlayer.gd"
+}, {
+"base": "Node2D",
 "class": "customization",
 "language": "GDScript",
 "path": "res://customization_page/customization.gd"
 } ]
 _global_script_class_icons={
 "Food_Spawer": "",
+"PlayerSnake": "",
 "customization": ""
 }
 

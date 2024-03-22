@@ -9,6 +9,9 @@ radius = 51.0
 [node name="SnakeSegment" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = -11.0

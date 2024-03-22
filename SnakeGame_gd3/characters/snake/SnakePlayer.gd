@@ -1,4 +1,5 @@
 extends Node2D
+class_name PlayerSnake
 
 # Snake componements
 export var snake_seg : PackedScene
@@ -6,7 +7,7 @@ export var snake_head : PackedScene
 
 # Player's camera
 var playercam = Camera2D.new()
-var init_zoom = Vector2(0.5, 0.5)
+var init_zoom = Vector2(-10,-10)
 
 # Snake motion vars
 var snake_length = 5 # initial snake length
@@ -14,6 +15,7 @@ var snake_width = Vector2(0.6, 0.6)
 var snake_seg_offset = 20
 var snake_speed = 100 # initial snake speed
 var snake_rotation_speed = 2 # initial rotational speed
+var current_velocity : Vector2
 
 # Speed boost parameters
 var max_boost_energy : float = snake_length*100
@@ -42,7 +44,7 @@ func _process(_delta):
 	if player_level < level:
 		update_snake_params()
 		player_level = level
-		playercam.zoom += Vector2(0.1, 0.1)
+		# playercam.zoom += Vector2(0.1, 0.1)
 
 func _physics_process(_delta):
 	move_snake()
@@ -100,7 +102,8 @@ func add_camera(zoom):
 # Move the snake frame by frame
 func move_snake():
 	
-	snake_body[0].velocity = drive_SnakeHead(snake_body[0].velocity)
+	current_velocity = drive_SnakeHead(snake_body[0].velocity)
+	snake_body[0].velocity = current_velocity
 	
 	var segment_vect : Vector2
 	for i in range(1, snake_length):
@@ -122,7 +125,8 @@ func move_snake():
 func drive_SnakeHead(snake_velocity):
 	
 	var heading_vect : Vector2
-	heading_vect = get_global_mouse_position() - snake_body[0].global_position
+	heading_vect = get_global_mouse_position() - (snake_body[0].global_position)
+	snake_body[0].heading.rect_rotation = rad2deg(heading_vect.angle() + PI/2)
 	
 	var dif = rad2deg(snake_velocity.angle() - heading_vect.angle())
 	if dif < 0 and dif > -180 or dif > 180:

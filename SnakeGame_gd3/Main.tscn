@@ -4,21 +4,24 @@
 [ext_resource path="res://characters/snake/SnakePlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://live_leaderboard/live_leaderboard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://food_spawner/food_spawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/NPC_snake/NPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/snake/SnakeNPC.tscn" type="PackedScene" id=6]
 
 [node name="game_play" type="Node2D"]
-
-[node name="arena" parent="." instance=ExtResource( 1 )]
-position = Vector2( -454, -276 )
-z_index = -10
-z_as_relative = false
 
 [node name="SnakePlayer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 519, 307 )
 z_index = 1
 
+[node name="SnakeNPC" parent="." instance=ExtResource( 6 )]
+
 [node name="live_leaderboard" parent="." instance=ExtResource( 3 )]
 
 [node name="food_spawner" parent="." instance=ExtResource( 4 )]
 
-[node name="NPC" parent="." instance=ExtResource( 5 )]
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 100
+
+[node name="arena" parent="." instance=ExtResource( 1 )]
+position = Vector2( -454, -276 )
+z_index = -10
+z_as_relative = false

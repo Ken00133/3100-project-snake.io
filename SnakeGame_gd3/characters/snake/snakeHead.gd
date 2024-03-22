@@ -6,6 +6,7 @@ export var energy = Vector2(0, 1)
 
 onready var head = $headCollision
 onready var energy_bar = $energy_bar
+onready var heading = $heading
 	
 func energy_bar_update():
 	energy_bar.rect_scale = energy
