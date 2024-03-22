@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://text_font/TheBlowar-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://title_page/new_theme_for_gui.tres" type="Theme" id=3]
 [ext_resource path="res://title_page/title_page.gd" type="Script" id=4]
-[ext_resource path="res://images/blue-wide-background.jpg" type="Texture" id=5]
+[ext_resource path="res://images/gui/blue-wide-background.jpg" type="Texture" id=5]
 [ext_resource path="res://images/game_icon.png" type="Texture" id=6]
+[ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -153,10 +154,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="always_available_menu" parent="." instance=ExtResource( 7 )]
+
 [connection signal="button_down" from="VBoxContainer/Play" to="." method="_on_Play_button_down"]
 [connection signal="button_down" from="VBoxContainer/Setting" to="." method="_on_Setting_button_down"]
+[connection signal="button_down" from="VBoxContainer/Leaderboard" to="." method="_on_Leaderboard_button_down"]
 [connection signal="button_down" from="VBoxContainer/Customize" to="." method="_on_Customize_button_down"]
-[connection signal="button_down" from="VBoxContainer/Achievement" to="." method="_on_Customize_button_down"]
+[connection signal="button_down" from="VBoxContainer/Achievement" to="." method="_on_Achievement_button_down"]
 [connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_Exit_button_down"]
 [connection signal="button_down" from="How_to_play" to="." method="_on_How_to_play_button_down"]
 [connection signal="toggled" from="How_to_play" to="." method="_on_How_to_play_toggled"]

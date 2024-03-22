@@ -1,18 +1,15 @@
 extends KinematicBody2D
 
 export var velocity = Vector2(0,0)
+var snake_skin = GlobalVariable.snake_skin
 
 func _ready():
-	# for debuging
-	var dum = GlobalVariable.username
-	print("in snake segment: ", dum)
-	change_skin("3")
+	change_skin(snake_skin)
+		
 	
 func change_skin(skin_id):
-	var collosion_circle = get_node("CollisionShape2D")
 	var snake = get_node("Sprite")
-	print(skin_id)
-	var path = "res://images/snake_skin/ball_" + skin_id + ".png"
+	var path = "res://images/snake_skin/ball_" + str(skin_id) + ".png"
 	snake.texture = load(path)
 	snake.scale.x = -0.25
 	snake.scale.y = 0.25
