@@ -6,12 +6,19 @@ const bcrypt = require('bcrypt');
 const User = require('./userProfile');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://127.0.0.1:27017/3100_project_db') // put your own database link here
-const db = mongoose.connection;
-// Upon connection failure
-db.on('error', console.error.bind(console, 'Connection error:'));
-// Upon opening the database successfully
-db.once('open', function () {
+// mongoose.connect('mongodb://127.0.0.1:27017/3100_project_db') // put your own database link here
+
+// const db = mongoose.connection;
+// // Upon connection failure
+// db.on('error', console.error.bind(console, 'Connection error:'));
+// // Upon opening the database successfully
+
+const { Client } = require('pg');
+ 
+const client = new Client({ user: 'postgres', host: 'localhost', database: 'postgres', password: 'csci3100', port: '5432', });
+client.connect() .then(() => { console.log('Connected to PostgreSQL database!'); }) .catch((err) => { console.error('Error connecting to the database:', err); });
+
+client.once('open', function () {
     console.log("Connection is open...");
 
 	const corsOptions = {
@@ -22,6 +29,7 @@ db.once('open', function () {
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
 	app.use(cors(corsOptions))
+
 
     //Event list handle
     app.get('/location/:venueid', (req, res) => {
