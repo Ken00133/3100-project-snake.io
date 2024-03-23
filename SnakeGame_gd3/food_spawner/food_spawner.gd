@@ -15,9 +15,11 @@ var rng = RandomNumberGenerator.new()
 func spawn_food():
 	var position_of_food = food_position()
 	var size_of_food = food_size()
+	var skin_id = rng.randi_range(0, 9)
 	var food = food_scene.instance()
 	food.position = position_of_food
 	food.size = size_of_food
+	food.skin_id = skin_id
 	get_parent().get_node("arena").get_node("foods").add_child(food)
 	
 	
