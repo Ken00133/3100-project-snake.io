@@ -5,7 +5,7 @@ class_name Food_Spawer extends Node2D
 # var a = 2
 # var b = "text"
 var food_scene: PackedScene = preload("res://food/food.tscn")
-var max_food = 100
+var max_food = 1000
 # food size
 var max_food_size = 4
 var min_food_size = 1
@@ -56,7 +56,7 @@ func exceed_max_food():
 	return true
 	
 func _ready():
-	var room = 20
+	var room = 100
 	# generate max_food - room number of food
 	for i in range(max_food - room):
 		spawn_food()

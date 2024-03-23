@@ -2,8 +2,8 @@ extends Node2D
 
 
 
-var height = 2000
-var width = 3000
+var height = 2000 * 4
+var width = 3000 * 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
