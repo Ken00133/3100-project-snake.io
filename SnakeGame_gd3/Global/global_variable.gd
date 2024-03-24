@@ -13,11 +13,51 @@ var achievement:Array
 
 signal OK_to_set_master_volume
 
-func _ready():
+#func _ready():
 	# To do: get username form backend
-	username = "wosy"
+	#username = "wosy"
+	#DatabaseUtils.connect("databaseConnected", self, "get_user_attribute")
+
+var ws = WebSocketClient.new()
+
+func _ready():
+	ws.connect("connection_established", self, "_on_connection_established")
+	ws.connect("connection_error", self, "_on_connection_error")
+	ws.connect("connection_closed", self, "_on_connection_closed")
+	ws.connect("server_close_request", self, "_on_server_close_request")
+	ws.connect("data_received", self, "_on_data_received")
+
+	var url = "ws://localhost:4000" # Change this to your WebSocket server URL
+	ws.connect_to_url(url)
+	print("Attempting to connect to WebSocket server at ", url)
 	DatabaseUtils.connect("databaseConnected", self, "get_user_attribute")
-	
+
+
+func _process(delta):
+	ws.poll()
+
+func _on_connection_established(protocol):
+	print("Connected to the WebSocket server with protocol: ", protocol)
+
+func _on_connection_error():
+	print("Failed to connect to the WebSocket server.")
+
+func _on_connection_closed(was_clean_close):
+	print("WebSocket connection closed. Clean close: ", was_clean_close)
+
+func _on_server_close_request(code, reason):
+	print("Server requested to close the connection. Code: ", code, ", Reason: ", reason)
+	ws.close(code, reason)
+
+func _on_data_received():
+	var data = ws.get_peer(1).get_packet().get_string_from_utf8()
+	print("Data received from the WebSocket server: ", data)
+	var message = parse_json(data)
+	if message and message.type == "user-login":
+		var username = message.username
+		# Display username here or perform further actions
+		print("User logged in: ", username)
+		
 func _exit_tree():
 	update_user_profile_database()
 

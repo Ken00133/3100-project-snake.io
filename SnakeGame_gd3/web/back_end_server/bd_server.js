@@ -3,6 +3,27 @@ const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { Server } = require('ws');
+
+const server = app.listen(4000, () => console.log('HTTP Server running on port 4000'));
+const wss = new Server({ server }); // Attach WebSocket server to the same HTTP server
+
+// WebSocket connection handler
+wss.on('connection', (ws) => {
+  console.log('Client connected to WebSocket server');
+
+  ws.on('message', (message) => {
+    console.log(`Received message: ${message}`);
+  });
+
+  ws.on('close', () => {
+    console.log('Client disconnected');
+  });
+
+// Here you can send data to the client
+  // For example, notify the client about the logged-in user
+  // ws.send(JSON.stringify({ type: 'user-login', username: 'exampleUser' }));
+});
 // const User = require('./userProfile');
 // const bodyParser = require('body-parser');
 //const saltRounds = 10; // For bcrypt
@@ -105,7 +126,28 @@ client.connect() .then(() => { console.log('Connected to PostgreSQL database!');
             const match = await bcrypt.compare(password, user.password);
       
             if (match) {
-              // Passwords match
+              // Fetch user data from the database
+              const userData = await client.query('SELECT * FROM user_profile WHERE username = $1', [username]);
+              const user = userData.rows[0];
+              // Notify all connected WebSocket clients (for simplicity, though you might want to target specific sessions)
+              wss.clients.forEach((client) => {
+                if (client.readyState === WebSocket.OPEN) {
+                    client.send(JSON.stringify({ 
+                        type: 'user-login', 
+                        username,
+                        attributes: {
+                            high_score: user.high_score,
+                            highest_length: user.highest_length,
+                            highest_number_of_kills: user.highest_number_of_kills,
+                            master_volume: user.master_volume,
+                            sound_effect_volume: user.sound_effect_volume,
+                            snake_skin: user.snake_skin,
+                            achievement: user.achievement,
+                            background_theme: user.background_theme
+                        }
+                    }));
+                }
+            });
               return res.status(200).json({ message: "Login successful" });
             } else {
               // Passwords do not match
