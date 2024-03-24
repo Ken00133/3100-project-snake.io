@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const { Server } = require('ws');
 
-const server = app.listen(4000, () => console.log('HTTP Server running on port 4000'));
+const server = app.listen(5000, () => console.log('HTTP Server running on port 5000'));
 const wss = new Server({ server }); // Attach WebSocket server to the same HTTP server
 
 // WebSocket connection handler

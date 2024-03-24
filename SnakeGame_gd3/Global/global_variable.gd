@@ -27,11 +27,9 @@ func _ready():
 	ws.connect("server_close_request", self, "_on_server_close_request")
 	ws.connect("data_received", self, "_on_data_received")
 
-	var url = "ws://localhost:4000" # Change this to your WebSocket server URL
+	var url = "ws://localhost:5000" # Change this to your WebSocket server URL
 	ws.connect_to_url(url)
 	print("Attempting to connect to WebSocket server at ", url)
-	DatabaseUtils.connect("databaseConnected", self, "get_user_attribute")
-
 
 func _process(delta):
 	ws.poll()
