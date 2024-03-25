@@ -16,15 +16,19 @@ class App extends React.Component {
         <div>
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Snake.io</a>
+              <a class="navbar-brand" href="/">Snake.io</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/members">Group Members</a>
                   </li>
+                </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                  <button type="button" class="btn btn-outline-primary mx-2"><a href="/register" style={{textDecoration: 'none', color: 'white'}}> Register </a></button>
+                  <button type="button" class="btn btn-primary mx-2"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Login </a></button>
                 </ul>
               </div>
             </div>
@@ -33,6 +37,7 @@ class App extends React.Component {
           <Routes>
             {/*<Route path="/" element={<HelloWorld />} />*/}
             <Route path="/" element={<Home />} />
+            <Route path="/members" element={<Members />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             {/* <Route element={<PrivateRoute />}> */}
@@ -57,11 +62,24 @@ const Home = () => {
       <br/>
       <h5 style={{color: 'white'}}>An Exciting Browser-Based Mini-Game</h5>
       <br/>
-      <button type="button" class="btn btn-success btn-lg"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Login </a></button>
+      <button type="button" class="btn btn-success btn-lg" onClick={() => navigate("/game")}>Play (without login)</button>
+    </div>
+  );
+}
+
+const Members = () => {
+  return (
+    <div align="center">
       <br/><br/>
-      <button type="button" class="btn btn-outline-success btn-sm"><a href="/register" style={{textDecoration: 'none', color: 'white'}}> Register </a></button>
-      <br/><br/>
-      <button type="button" class="btn btn-primary btn-lg" onClick={() => navigate("/game")}>Play (skipping the login)</button>
+      <h1 style={{color: 'white'}}>2023/24 CSCI3100 Project</h1>
+      <br/>
+      <h3 style={{color: 'white'}}><b>Group E2</b></h3>
+      <br/>
+      <h5 style={{color: 'white'}}>1155142430 Wong Tsz Kin</h5>
+      <h5 style={{color: 'white'}}>1155143354 Lau Hiu Wang</h5>
+      <h5 style={{color: 'white'}}>1155176920 Chow Man Fung</h5>
+      <h5 style={{color: 'white'}}>1155159055 Chong Hok Kan</h5>
+      <h5 style={{color: 'white'}}>1155159054 Wong Man Nam</h5>
     </div>
   );
 }
