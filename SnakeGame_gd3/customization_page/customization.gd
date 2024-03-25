@@ -23,6 +23,7 @@ func _on_Ball_4_button_down():
 	change_display_snake_skin()
 	
 func change_display_snake_skin():
+	snake_body[0].change_head_skin(snake_skin)
 	for i in range(1, snake_length):
 		snake_body[i].change_skin(snake_skin)
 
@@ -51,6 +52,7 @@ func add_segment(pos, z_index, snake_skin):
 
 func add_head(pos, z_index):
 	var head = snake_head.instance()
+	head.snake_skin = snake_skin
 	head.scale = Vector2(0.6, 0.6)
 	head.position = (pos*snake_seg_offset) + Vector2(0, snake_seg_offset)
 	add_child(head)
