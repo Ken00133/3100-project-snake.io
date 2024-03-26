@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var velocity = Vector2(0,0)
 var snake_skin = GlobalVariable.snake_skin
+# var snake_skin = 1
 
 func _ready():
 	change_skin(snake_skin)

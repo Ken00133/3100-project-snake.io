@@ -1,4 +1,4 @@
-extends KinematicBody2D
+class_name SnakeHead extends KinematicBody2D
 
 onready var head = $headCollision
 onready var energy_bar = $energy_bar
@@ -9,6 +9,8 @@ export var velocity = Vector2(0,0)
 export var score = 0
 export var energy = Vector2(0, 1)
 export var uname : String
+
+var is_dead = false
 
 func _ready():
 	change_skin("3")

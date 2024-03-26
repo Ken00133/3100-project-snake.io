@@ -1,4 +1,4 @@
-extends Node2D
+class_name NPCsnake extends Node2D
 
 onready var _player : PlayerSnake = get_tree().get_root().get_node("game_play/SnakePlayer")
 onready var _arena : Node2D = get_tree().get_root().get_node("game_play/arena")
@@ -14,22 +14,24 @@ var snake_width = Vector2(0.6, 0.6)
 var snake_seg_offset = 20
 var snake_speed = 100 # initial snake speed
 var snake_rotation_speed = 2 # initial rotational speed
+var current_velocity : Vector2
+# Snake body and position
+var snake_body : Array
+var current_pos : Vector2 = global_position
 
 # NPC params
 var rng = RandomNumberGenerator.new()
 var isEating = false
+var isFighting = false
 var nearestFoodPos : Vector2
 var RandomPos : Vector2
+var target_enemy : KinematicBody2D
 var possible_names = ["Jake", "Josh", "Peter", "Nat", "Ken", "Alex", "xXSnakeSlayerXx"]
 
 # Speed boost parameters
 var max_boost_energy : float = snake_length*100
 var boost_energy = max_boost_energy
 var recover_speed = 1 #How fast speed boost energy is replenished
-
-# Snake body and position
-var snake_body : Array
-var current_pos : Vector2 = global_position
 
 # score and level
 var score = 0
@@ -41,7 +43,8 @@ var last_z = 100
 #==============================================================================#
 
 func _ready():
-	gen_random_pos()
+	RandomPos = gen_random_pos()
+	current_pos = gen_random_pos()
 	generate_snake()
 
 func _physics_process(_delta):
@@ -49,7 +52,6 @@ func _physics_process(_delta):
 	_detectionArea.position = snake_body[0].position
 
 func _process(_delta):
-	
 	var new_score = snake_body[0].score
 	if score < new_score:
 		isEating = false
@@ -59,10 +61,21 @@ func _process(_delta):
 			update_snake_params()
 			level = new_lv
 
+
+
 func _on_detection_area_entered(area):
 	if area.is_in_group("food") and not isEating:
 		nearestFoodPos = area.global_position
 		isEating = true
+	elif area.is_in_group("snakehead") and level > 1:
+		target_enemy = area.get_parent()
+		isFighting = true
+		isEating = false
+
+func _on_detection_area_exited(area):
+	if area.is_in_group("snakehead"):
+		target_enemy = null
+		isFighting = false
 
 #==============================================================================#
 
@@ -105,15 +118,20 @@ func add_head(pos, scale, z_index):
 	return head
 
 func gen_random_pos():
+	var pos : Vector2
 	var arena_height = _arena.height
 	var arena_width = _arena.width
 	rng.randomize()
-	RandomPos.x = rng.randf_range(0, arena_width/2)
-	RandomPos.y = rng.randf_range(0, arena_height/2)
+	pos.x = rng.randf_range(0, arena_width)
+	pos.y = rng.randf_range(0, arena_height)
+	
+	return pos
 
 # Move the snake frame by frame
 func move_snake():
-	snake_body[0].velocity = drive_SnakeHead(snake_body[0].velocity)
+	
+	current_velocity = drive_SnakeHead(snake_body[0].velocity)
+	snake_body[0].velocity = current_velocity
 	
 	var segment_vect : Vector2
 	for i in range(1, snake_length):
@@ -135,15 +153,15 @@ func move_snake():
 func drive_SnakeHead(snake_velocity):
 	
 	var heading_vect : Vector2
-	if (_player.current_pos - self.current_pos).length() <= 500:
-		heading_vect = (_player.current_pos + _player.current_velocity*1.5) - snake_body[0].global_position
+	if isFighting and target_enemy:
+		heading_vect = (target_enemy.global_position + target_enemy.velocity*1.5) - snake_body[0].global_position
 	elif isEating:
 		heading_vect = nearestFoodPos - snake_body[0].global_position
 	else:
-		heading_vect = RandomPos  - snake_body[0].global_position
+		heading_vect = RandomPos - snake_body[0].global_position
 		if heading_vect.length() < 100:
-			gen_random_pos()
-		
+			RandomPos = gen_random_pos()
+	
 	snake_body[0].heading.rect_rotation = rad2deg(heading_vect.angle() + PI/2)
 	
 	var dif = rad2deg(snake_velocity.angle() - heading_vect.angle())
@@ -161,7 +179,6 @@ func drive_SnakeHead(snake_velocity):
 	snake_velocity = (snake_velocity).normalized()*snake_speed
 	return snake_velocity
 
-
 # Level up the snake when invoked
 func update_snake_params():
 	
@@ -177,5 +194,8 @@ func update_snake_params():
 	
 	snake_width = snake_body[0].scale
 	snake_seg_offset += 5
+
+
+
 
 

@@ -1,5 +1,4 @@
-extends Node2D
-class_name PlayerSnake
+class_name PlayerSnake extends Node2D
 
 # Snake componements
 export var snake_seg : PackedScene
@@ -9,7 +8,7 @@ var username = GlobalVariable.username
 
 # Player's camera
 var playercam = Camera2D.new()
-var init_zoom = Vector2(1,1)
+var init_zoom = Vector2(20,20)
 
 # Snake motion vars
 var snake_length = 5 # initial snake length
@@ -17,16 +16,15 @@ var snake_width = Vector2(0.6, 0.6)
 var snake_seg_offset = 20
 var snake_speed = 100 # initial snake speed
 var snake_rotation_speed = 2 # initial rotational speed
+# Snake body and position
+var snake_body : Array
+var current_pos : Vector2 = global_position
 var current_velocity : Vector2
 
 # Speed boost parameters
 var max_boost_energy : float = snake_length*100
 var boost_energy = max_boost_energy
 var recover_speed = 1 #How fast speed boost energy is replenished
-
-# Snake body and position
-var snake_body : Array
-var current_pos : Vector2 = global_position
 
 # Player score and level
 var player_score = 0
@@ -163,7 +161,13 @@ func update_snake_params():
 	snake_width = snake_body[0].scale
 	snake_seg_offset += 5
 	
-
-
+func end_game():
+	# update high_score, highest_length and highest_number_of_kills
+	# compare them with those in db
+	# achievement_condition_check() - > achievement_list
+	# update the global variable
+	# change scene
+	var end_game_scene: PackedScene = preload("res://end_game_page/end_game_page.tscn")
+	get_tree().change_scene_to(end_game_scene)
 
 
