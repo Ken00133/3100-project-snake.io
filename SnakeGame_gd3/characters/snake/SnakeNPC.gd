@@ -39,6 +39,7 @@ var level = 1
 
 # First (head) z-index
 var last_z = 100
+var id = get_instance_id()
 
 #==============================================================================#
 
@@ -60,8 +61,8 @@ func _process(_delta):
 		if level < new_lv:
 			update_snake_params()
 			level = new_lv
-
-
+	if snake_body[0].is_dead:
+		self.queue_free()
 
 func _on_detection_area_entered(area):
 	if area.is_in_group("food") and not isEating:

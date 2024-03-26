@@ -8,7 +8,7 @@ var username = GlobalVariable.username
 
 # Player's camera
 var playercam = Camera2D.new()
-var init_zoom = Vector2(20,20)
+var init_zoom = Vector2(1,1)
 
 # Snake motion vars
 var snake_length = 5 # initial snake length
@@ -32,6 +32,7 @@ var player_level = 1
 
 # First (head) z-index
 var last_z = 100
+var id = get_instance_id()
 
 #==============================================================================#
 
@@ -45,6 +46,8 @@ func _process(_delta):
 		update_snake_params()
 		player_level = level
 		playercam.zoom += Vector2(0.1, 0.1)
+	if snake_body[0].is_dead:
+		end_game()
 
 func _physics_process(_delta):
 	move_snake()
