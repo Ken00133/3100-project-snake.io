@@ -1,6 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 
+export class LoginControl {
+  constructor() {
+    this.state = ({isLoggedIn: false});
+  }
+
+  handleLogin() {
+    this.state = ({isLoggedIn: true});
+  }
+
+  handleLogout() {
+    this.state = ({isLoggedIn: false});
+  }
+}
+
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +40,7 @@ export const Login = () => {
       return response.json();
     })
     .then(data => {
+      isLoggedIn.handleLogin();
       console.log("Login successful");
       alert("Login successful!"); // You might want to redirect the user or save the login state
       navigate('/game'); // Adjust the navigation as per your application's flow

@@ -7,7 +7,7 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import { Login, Register } from "./components/auth.js";
+import { LoginControl, Login, Register } from "./components/auth.js";
 
 class App extends React.Component {
   render() {
@@ -27,8 +27,13 @@ class App extends React.Component {
                   </li>
                 </ul>
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                  <button type="button" class="btn btn-outline-primary mx-2"><a href="/register" style={{textDecoration: 'none', color: 'white'}}> Register </a></button>
-                  <button type="button" class="btn btn-primary mx-2"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Login </a></button>
+                  { isLoggedIn.state.isLoggedIn?
+                    <button type="button" class="btn btn-primary mx-2"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Logout </a></button>
+                  :<div>
+                    <button type="button" class="btn btn-outline-primary mx-2"><a href="/register" style={{textDecoration: 'none', color: 'white'}}> Register </a></button>
+                    <button type="button" class="btn btn-primary mx-2"><a href="/login" style={{textDecoration: 'none', color: 'white'}}> Login </a></button>
+                  </div>
+                  }
                 </ul>
               </div>
             </div>
@@ -62,7 +67,10 @@ const Home = () => {
       <br/>
       <h5 style={{color: 'white'}}>An Exciting Browser-Based Mini-Game</h5>
       <br/>
-      <button type="button" class="btn btn-success btn-lg" onClick={() => navigate("/game")}>Play (without login)</button>
+      { isLoggedIn.state.isLoggedIn?
+      <button type="button" class="btn btn-success btn-lg" onClick={() => navigate("/game")}>Play</button>
+      :<button type="button" class="btn btn-success btn-lg" onClick={() => navigate("/game")}>Play (without login)</button>
+      }
     </div>
   );
 }
@@ -105,5 +113,6 @@ const NoMatch = () => {
   );
 }
 
+let isLoggedIn = new LoginControl();
 const root = ReactDOM.createRoot(document.querySelector("#app"));
 root.render(<App />);
