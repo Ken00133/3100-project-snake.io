@@ -1,11 +1,5 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	modify_player_score()
@@ -18,6 +12,10 @@ func modify_player_score():
 	var label = get_node("player_score")
 	var score = player_score()
 	label.text = "Your score: " + str(score)
+	
+func compare_score():
+	var NPCs = get_tree().get_nodes_in_group("NPCs")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	var id_label = get_node("id")
