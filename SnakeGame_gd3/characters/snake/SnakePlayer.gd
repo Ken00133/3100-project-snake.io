@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	move_snake(current_velocity)
 
 func _input(_event):
-	if Input.is_action_pressed("speed_boost") and boost_energy > 0:
+	if Input.is_action_pressed("speed_boost") and current_boost_energy > 0:
 		snake_speed = 300
 	else:
 		snake_speed = 100
