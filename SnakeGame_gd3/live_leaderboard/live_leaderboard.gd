@@ -6,6 +6,7 @@ func _ready():
 	update_player_score()
 	update_player_rank(player_rank())
 	update_live_leaderboard()
+	update_playeringlobal()
 
 # get the score and name of player
 func player_score_name():
@@ -95,8 +96,15 @@ func update_live_leaderboard():
 			update_live_leaderboard_label(i + 1, NPCs_sn[current_rank - 1][1], NPCs_sn[current_rank - 1][0])
 			current_rank += 1
 
+# update the player rank and score in global variable for display in end game page
+func update_playeringlobal():
+	var rank = player_rank()
+	var score = player_score_name()[0]
+	GlobalVariable.player_rank = rank
+	GlobalVariable.player_score = score
 
 func _on_Timer_timeout():
 	update_player_score()
 	update_player_rank(player_rank())
 	update_live_leaderboard()
+	update_playeringlobal()

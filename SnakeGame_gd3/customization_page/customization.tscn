@@ -14,7 +14,6 @@
 [ext_resource path="res://images/gui/dark_gary_by_kjpargeter.jpg" type="Texture" id=12]
 [ext_resource path="res://setting_page/always_available_menu.tscn" type="PackedScene" id=13]
 
-
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_char = 1
 extra_spacing_space = 1
