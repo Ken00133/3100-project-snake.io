@@ -1,16 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://characters/snake/SnakeNPC.gd" type="Script" id=1]
-[ext_resource path="res://characters/snake/snakeHead.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/snake/SnakeSegment.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 310.161
 
 [node name="SnakeNPC" type="Node2D"]
 script = ExtResource( 1 )
-snake_seg = ExtResource( 3 )
-snake_head = ExtResource( 2 )
 
 [node name="detection" type="Area2D" parent="." groups=["foodDetection"]]
 

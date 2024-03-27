@@ -12,7 +12,6 @@ export var uname : String
 
 var character_id : String
 var is_dead = false
-var omit_first = true
 
 func _ready():
 	change_skin("3")
