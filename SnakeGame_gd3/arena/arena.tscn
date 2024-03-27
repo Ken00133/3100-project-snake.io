@@ -28,8 +28,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="background" type="Sprite" parent="Panel"]
-position = Vector2( 1508, 1026 )
+[node name="background" type="TextureRect" parent="Panel"]
+margin_right = 12011.0
+margin_bottom = 8016.0
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bounds" type="Area2D" parent="."]
 

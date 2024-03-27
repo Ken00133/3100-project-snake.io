@@ -9,7 +9,7 @@ func _ready():
 	
 func change_skin(skin_id):
 	var snake = get_node("Sprite")
-	var path = "res://images/snake_skin/ball_" + str(skin_id) + ".png"
+	var path = "res://images/snake_skin/skin_" + str(skin_id) + ".png"
 	snake.texture = load(path)
 	snake.scale.x = -0.25
 	snake.scale.y = 0.25

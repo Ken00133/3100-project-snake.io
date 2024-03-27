@@ -4,10 +4,10 @@ extends Control
 var master_bus = AudioServer.get_bus_index("Master")
 var master_volume
 var iterative_variable = GlobalVariable.background_theme - 1
-var background_imgs = [preload("res://images/gui/setting_img/bg_1.jpg"), preload("res://images/gui/setting_img/bg_2.jpg"),
+var background_imgs = [preload("res://images/gui/setting_img/bg_1.png"), preload("res://images/gui/setting_img/bg_2.png"),
 						preload("res://images/gui/setting_img/bg_3.png"), preload("res://images/gui/setting_img/bg_4.png"),
-						preload("res://images/gui/setting_img/bg_5.jpg"), preload("res://images/gui/setting_img/bg_6.jpg")]
-var unlock_theme_thresholds = [0, 0, 0, 20, 40, 60]
+						preload("res://images/gui/setting_img/bg_5.png"), preload("res://images/gui/setting_img/bg_6.png")]
+var unlock_theme_thresholds = [0, 0, 0, 0, 40, 60]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

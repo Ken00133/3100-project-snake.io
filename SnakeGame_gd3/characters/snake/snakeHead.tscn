@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/snake/snakeHead.gd" type="Script" id=1]
 [ext_resource path="res://characters/snake/energy_bar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://images/snake_skin/ball_4.png" type="Texture" id=3]
 [ext_resource path="res://images/snake_skin/eye.png" type="Texture" id=4]
 [ext_resource path="res://text_font/pixelmix_micro.ttf" type="DynamicFontData" id=5]
 
@@ -29,7 +28,6 @@ shape = SubResource( 2 )
 
 [node name="head" type="Sprite" parent="headCollision"]
 scale = Vector2( 0.25, -0.25 )
-texture = ExtResource( 3 )
 
 [node name="eye1" type="Sprite" parent="headCollision/head"]
 position = Vector2( -76.0001, 84 )

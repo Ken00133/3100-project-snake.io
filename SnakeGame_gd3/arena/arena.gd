@@ -61,7 +61,6 @@ func _on_bounds_area_entered(area):
 		end_game()
 		
 func set_arena_background():
-	print("set_arena_bg: ", GlobalVariable.background_theme)
 	var b = get_node("Panel/background")
-	b.texture = load("res://images/gui/arena_background/bg_" + str(GlobalVariable.background_theme)+ ".jpg")
+	b.texture = load("res://images/gui/arena_background/bg_" + str(GlobalVariable.background_theme)+ ".png")
 

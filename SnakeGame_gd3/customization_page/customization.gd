@@ -32,7 +32,7 @@ func change_display_snake_skin():
 var snake_seg_offset = 20
 var snake_length = 7
 var snake_body : Array
-var start_pos : Vector2 = Vector2(10, 9)
+var start_pos : Vector2 = Vector2(9, 9)
 var snake_seg : PackedScene = preload("res://characters/snake/SnakeSegment.tscn")
 var snake_head : PackedScene = preload("res://characters/snake/snakeHead.tscn")
 
@@ -63,7 +63,57 @@ func _on_Confirm_button_down():
 	GlobalVariable.snake_skin = snake_skin
 	get_tree().change_scene("res://title_page/title_page.tscn")
 	
-	
-
 func _on_Bk_to_main_button_down():
 	get_tree().change_scene("res://title_page/title_page.tscn")
+
+
+func _on_skin_5_button_down():
+	snake_skin = 5
+	change_display_snake_skin()
+
+func _on_skin_6_button_down():
+	snake_skin = 6
+	change_display_snake_skin()
+
+func _on_skin_7_button_down():
+	snake_skin = 7
+	change_display_snake_skin()
+
+
+func _on_skin_8_button_down():
+	snake_skin = 8
+	change_display_snake_skin()
+
+
+func _on_skin_9_button_down():
+	snake_skin = 9
+	change_display_snake_skin()
+
+
+func _on_skin_10_button_down():
+	snake_skin = 10
+	change_display_snake_skin()
+
+
+func _on_skin_11_button_down():
+	snake_skin = 11
+	change_display_snake_skin()
+
+
+func _on_skin_12_button_down():
+	snake_skin = 12
+	change_display_snake_skin()
+
+
+func _on_skin_13_button_down():
+	snake_skin = 13
+	change_display_snake_skin()
+
+
+func _on_skin_14_button_down():
+	snake_skin = 14
+	change_display_snake_skin()
+
+func _on_skin_15_button_down():
+	snake_skin = 15
+	change_display_snake_skin()

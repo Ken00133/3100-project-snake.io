@@ -28,7 +28,7 @@ func _on_headcollision_area_entered(area):
 
 func change_head_skin(skin_id):
 	var snake_head = get_node("headCollision/head")
-	var path = "res://images/snake_skin/ball_" + str(skin_id) + ".png"
+	var path = "res://images/snake_skin/skin_" + str(skin_id) + ".png"
 	snake_head.texture = load(path)
 	snake_head.scale.x = 0.25
 	snake_head.scale.y = -0.25

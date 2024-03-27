@@ -4,7 +4,7 @@ extends Node
 
 var username 
 var master_volume 
-var snake_skin
+var snake_skin = 1
 var background_theme
 var high_score
 var highest_length
