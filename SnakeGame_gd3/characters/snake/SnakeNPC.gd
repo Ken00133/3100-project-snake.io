@@ -1,9 +1,5 @@
 class_name NPCsnake extends "res://characters/snake/Snake.gd"
 
-# score and level
-var score = 0
-var level = 1
-
 onready var _player : PlayerSnake = get_tree().get_root().get_node("game_play/SnakePlayer")
 onready var _arena : Node2D = get_tree().get_root().get_node("game_play/arena")
 onready var _detectionArea : Area2D = $detection
@@ -16,6 +12,9 @@ var nearestFoodPos : Vector2
 var RandomPos : Vector2
 var target_enemy : KinematicBody2D
 var possible_names = ["Jake", "Josh", "Peter", "Nat", "Ken", "Alex", "xXSnakeSlayerXx"]
+# score and level
+var npc_score = 0
+var npc_level = 1
 
 #==============================================================================#
 
@@ -25,28 +24,28 @@ func _ready():
 	var snake_name = gen_random_name()
 	generate_snake(snake_name)
 
+func _process(_delta):
+	var new_score = snake_body[0].score
+	if npc_score < new_score:
+		isEating = false
+		npc_score = new_score
+		var new_lv = 1 + round(npc_score/10)
+		if npc_level < new_lv:
+			update_snake_params()
+			npc_level = new_lv
+	if snake_body[0].is_dead:
+		self.queue_free()
+
 func _physics_process(_delta):
 	var current_velocity = drive_npc_snake_head(snake_body[0].velocity)
 	move_snake(current_velocity)
 	_detectionArea.position = snake_body[0].position
 
-func _process(_delta):
-	var new_score = snake_body[0].score
-	if score < new_score:
-		isEating = false
-		score = new_score
-		var new_lv = 1 + round(score/10)
-		if level < new_lv:
-			update_snake_params()
-			level = new_lv
-	if snake_body[0].is_dead:
-		self.queue_free()
-
 func _on_detection_area_entered(area):
 	if area.is_in_group("food") and not isEating:
 		nearestFoodPos = area.global_position
 		isEating = true
-	elif area.is_in_group("snakehead") and level > 1:
+	elif area.is_in_group("snakehead") and npc_level > 1:
 		target_enemy = area.get_parent()
 		isFighting = true
 		isEating = false
