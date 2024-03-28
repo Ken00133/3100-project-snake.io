@@ -56,9 +56,9 @@ func achievement_condition_check():
 	pass
 	
 	
-func _on_bounds_area_entered(area):
-	if area.is_in_group("snakehead"):
-		end_game()
+#func _on_bounds_area_entered(area):
+	#if area.is_in_group("snakehead"):
+		#end_game()
 		
 func set_arena_background():
 	var b = get_node("Panel/background")

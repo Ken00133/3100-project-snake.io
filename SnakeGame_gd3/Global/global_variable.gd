@@ -11,6 +11,9 @@ var high_score
 var highest_length
 var highest_number_of_kills
 var achievement:Array
+# for end game page
+var player_rank
+var player_score
 
 signal OK_to_set_master_volume
 

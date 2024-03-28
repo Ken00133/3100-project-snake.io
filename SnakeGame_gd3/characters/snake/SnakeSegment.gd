@@ -1,11 +1,16 @@
 extends KinematicBody2D
 
+onready var body = $segmentCollision
+
 export var velocity = Vector2(0,0)
-var snake_skin = GlobalVariable.snake_skin
+# var snake_skin = GlobalVariable.snake_skin
+var snake_skin = 1
+var character_id : String
 
 func _ready():
 	change_skin(snake_skin)
-		
+	character_id = String(get_parent().id)
+	body.add_to_group(character_id)
 	
 func change_skin(skin_id):
 	var snake = get_node("Sprite")

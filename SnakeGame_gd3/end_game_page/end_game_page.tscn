@@ -29,13 +29,14 @@ __meta__ = {
 }
 
 [node name="died_message" type="Label" parent="."]
-margin_left = 2.0
-margin_top = 1.0
-margin_right = 49.0
-margin_bottom = 15.0
+margin_left = 442.0
+margin_top = 229.0
+margin_right = 513.0
+margin_bottom = 243.0
 rect_scale = Vector2( 2, 2 )
 size_flags_stretch_ratio = 0.0
 text = "You die"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
