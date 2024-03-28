@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const { Client } = require('pg');
  
-const client = new Client({ user: 'postgres', host: 'localhost', database: 'postgres', password: 'csci3100', port: '5432', });
+const client = new Client({ user: 'postgres', host: 'postgres-1.cv2a446oo0fk.us-east-2.rds.amazonaws.com', database: 'postgres', password: 'aweoigwvan', port: '5432', });
 client.connect() .then(() => { console.log('Connected to PostgreSQL database!');
 
     //Event list handle
