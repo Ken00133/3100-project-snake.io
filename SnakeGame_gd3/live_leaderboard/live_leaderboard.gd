@@ -40,7 +40,7 @@ func npc_score_name():
 	var number_NPC = NPCs.size()
 	var score_name = []
 	for i in range(number_NPC):
-		var score = int(NPCs[i].score)
+		var score = int(NPCs[i].npc_score)
 		var name = NPCs[i].get_node("snakeHead").uname
 		score_name.append([score, name])
 	return score_name
