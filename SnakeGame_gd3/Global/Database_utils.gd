@@ -2,8 +2,8 @@ extends Node2D
 
 var database = PostgreSQLClient.new()
 var user = "postgres"
-var host = "localhost"
-var password = "csci3100"
+var host = "postgres-1.cv2a446oo0fk.us-east-2.rds.amazonaws.com"
+var password = "aweoigwvan"
 var port = 5432
 var databaseConnection = "postgres"
 

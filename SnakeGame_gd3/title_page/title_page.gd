@@ -13,7 +13,8 @@ func _ready():
 
 
 func _on_Play_button_down():
-	get_tree().change_scene("res://Main.tscn")
+	# first change to screen to input nickname
+	get_tree().change_scene("res://arena/input_nickname.tscn")
 	
 func _on_Exit_button_down():
 	get_tree().quit()

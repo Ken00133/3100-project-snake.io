@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_player_score()
@@ -20,6 +19,17 @@ func update_player_score():
 	var label = get_node("player_score")
 	var score = player_score_name()[0]
 	label.text = "Your score: " + str(score)
+	
+func compare_score():
+	var NPCs = get_tree().get_nodes_in_group("NPCs")
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	var id_label = get_node("id")
+#	var score_label = get_node("score")
+#	var level_label = get_node("level")
+#	var rank_label = get_node("rank")
+#	var player = get_node("../Snake")
 	
 func npc_score_name():
 	# SnakeNPCs are the children of npc_spawner

@@ -13,8 +13,9 @@ export var uname : String
 var character_id : String
 var is_dead = false
 
+var snake_skin = GlobalVariable.snake_skin
 func _ready():
-	change_skin("3")
+	change_head_skin(snake_skin)
 	snakename.text = uname
 	character_id = String(get_parent().id)
 	head.add_to_group(character_id)
@@ -33,14 +34,12 @@ func energy_bar_update():
 	else:
 		energy_bar.modulate.a8 = 255
 
-func change_skin(skin_id):
-	var collosion_circle = get_node("headCollision/CollisionShape2D")
-	var snake = get_node("headCollision/head")
-	print(skin_id)
-	var path = "res://images/snake_skin/ball_" + skin_id + ".png"
-	snake.texture = load(path)
-	snake.scale.x = 0.25
-	snake.scale.y = -0.25
+func change_head_skin(skin_id):
+	var snake_head = get_node("headCollision/head")
+	var path = "res://images/snake_skin/skin_" + str(skin_id) + ".png"
+	snake_head.texture = load(path)
+	snake_head.scale.x = 0.25
+	snake_head.scale.y = -0.25
 	
 func _physics_process(_delta):
 	head.rotation = velocity.angle() + PI/2
