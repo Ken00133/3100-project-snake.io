@@ -13,8 +13,8 @@ var skin_id = 1
 func _ready():
 	var image = get_node("Sprite")
 	var collision = get_node("CollisionShape2D")
-	image.scale.x = size * 0.05
-	image.scale.y = size * 0.05
+	image.scale.x = size * 0.03
+	image.scale.y = size * 0.03
 	collision.scale.x = size
 	collision.scale.y = size
 	score = size
