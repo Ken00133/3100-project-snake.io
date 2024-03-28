@@ -35,6 +35,7 @@ var snake_body : Array
 var start_pos : Vector2 = Vector2(9, 9)
 var snake_seg : PackedScene = preload("res://characters/snake/SnakeSegment.tscn")
 var snake_head : PackedScene = preload("res://characters/snake/snakeHead.tscn")
+var id = get_instance_id()
 
 func generate_snake():
 	snake_body.clear()
